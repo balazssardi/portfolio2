@@ -53,7 +53,7 @@ export default function MainButton({
           </h1>
           <p className="leading-tight">{desc}</p>
           <Image
-            src={`./${image}`}
+            src={`/${image}`}
             alt={`${title} photo`}
             width={235}
             height={235}

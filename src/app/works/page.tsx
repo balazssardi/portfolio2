@@ -1,7 +1,7 @@
 "use client";
 import Logo from "../components/Logo";
 import Image from "next/image";
-import banner from "../../../public/worksbanner.svg";
+import banner from "../../../public/worksbanner.webp";
 import SearchContainer from "../components/SearchContainer";
 import Navbar from "../components/Navbar";
 
