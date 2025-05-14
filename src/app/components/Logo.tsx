@@ -1,4 +1,4 @@
-export default function Logo() {
+export default function Logo({ text }: { text: string }) {
   return (
     <div
       className="w-fit p-1 text-white"
@@ -37,7 +37,7 @@ export default function Logo() {
                 borderRadius: "12px",
               }}
             >
-              <p className="text-3xl">Sárdi Balázs</p>
+              <p className="text-3xl">{text}</p>
             </div>
           </div>
         </div>

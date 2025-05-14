@@ -1,16 +1,19 @@
 "use client";
 
-import { ReactElement, useRef, useState } from "react";
+import { MouseEventHandler, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MainButton({
   title,
   desc,
   image,
+  to,
 }: {
   title: string;
   desc: string;
   image: string;
+  to: string;
 }) {
   const [style, setStyle] = useState({});
   const div = useRef(null);
@@ -21,11 +24,12 @@ export default function MainButton({
     setStyle({ "--x": `${x}px`, "--y": `${y}px` });
   }
   return (
-    <div
+    <Link
       className="hoverBox flex rounded-3xl drop-shadow-lg"
       style={style}
       onMouseMove={mouseMoveHandler}
       ref={div}
+      href={to}
     >
       <div
         className="p-0.5 rounded-[20px]"
@@ -34,7 +38,7 @@ export default function MainButton({
         }}
       >
         <div
-          className="bg-white w-full h-full rounded-[18px] flex justify-evenly items-center flex-col text-center text-black"
+          className="bg-white w-full h-full rounded-[18px] flex justify-evenly items-center flex-col text-center text-black p-4"
           style={{
             background:
               "linear-gradient(180deg, rgba(252, 252, 252, 0.95) 0%, rgba(244, 244, 244, 0.95) 100%)",
@@ -50,6 +54,6 @@ export default function MainButton({
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -7,7 +7,7 @@ export default function Home() {
     <div className="relative grid grid-cols-5 min-h-screen">
       <div className="flex flex-col justify-evenly min-h-screen items-center absolute w-full py-8 max-xl:gap-8">
         <div className="flex flex-col gap-8 items-center">
-          <Logo />
+          <Logo text="Sárdi Balázs" />
           <MainText />
         </div>
         <div className="flex flex-row gap-2 max-xl:flex-col items-center">
@@ -15,16 +15,19 @@ export default function Home() {
             title="About Me"
             desc="Get to know who I am and how I got into front-end development."
             image="aboutme.svg"
+            to="about"
           />
           <MainButton
             title="My Works"
             desc="Check out some of the websites and interfaces I’ve built."
             image="works.svg"
+            to="works"
           />
           <MainButton
             title="About Me"
             desc="Get to know who I am and how I got into front-end development."
             image="aboutme.svg"
+            to="contact"
           />
         </div>
       </div>
