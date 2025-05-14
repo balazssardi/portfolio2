@@ -17,13 +17,14 @@ export default function MainButton({
   to: string;
 }) {
   const [style, setStyle] = useState({});
-  const div = useRef(null);
+  const div = useRef<HTMLDivElement>(null);
   function mouseMoveHandler(
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
-    const rect = div.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const rect = div.current?.getBoundingClientRect();
+    if (rect!) return;
+    const x = e.clientX - rect!.left;
+    const y = e.clientY - rect!.top;
     setStyle({ "--x": `${x}px`, "--y": `${y}px` });
   }
   return (
