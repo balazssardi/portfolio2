@@ -1,7 +1,11 @@
+import { libre } from "../fonts";
+
 export default function MainText() {
   return (
     <div className="flex flex-col gap-4 text-center items-center">
-      <h1 className="font-semibold text-[40px] text-darkblue max-w-[400px] leading-none">
+      <h1
+        className={`font-semibold text-[40px] text-darkblue max-w-[400px] leading-tight ${libre.className}`}
+      >
         Jumpstart your vision with a{" "}
         <span
           role="h1"

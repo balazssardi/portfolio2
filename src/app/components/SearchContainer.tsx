@@ -44,9 +44,9 @@ export default function SearchContainer() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Type here to search..."
-        className="w-96 border border-[#FDFDFD] px-4 py-3 rounded-full bg-white"
+        className="w-96 border border-[#E5E5E5] px-4 py-3 rounded-full bg-[#FFF]"
       />
-      <div className="grid grid-cols-3 gap-4 items-center justify-center">
+      <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 items-center justify-center">
         {currentArr.length > 0 ? (
           currentArr.map((item, index) => <Work key={index} work={item} />)
         ) : (

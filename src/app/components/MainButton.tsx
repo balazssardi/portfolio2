@@ -1,8 +1,9 @@
 "use client";
 
-import { MouseEventHandler, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { libre } from "../fonts";
 
 export default function MainButton({
   title,
@@ -44,7 +45,9 @@ export default function MainButton({
               "linear-gradient(180deg, rgba(252, 252, 252, 0.95) 0%, rgba(244, 244, 244, 0.95) 100%)",
           }}
         >
-          <h1 className="leading-none text-[30px]">{title}</h1>
+          <h1 className={`leading-none text-[30px] ${libre.className}`}>
+            {title}
+          </h1>
           <p className="leading-tight">{desc}</p>
           <Image
             src={`./${image}`}

@@ -4,7 +4,7 @@ import MainText from "./components/MainText";
 
 export default function Home() {
   return (
-    <div className="relative grid grid-cols-5 min-h-screen">
+    <div className="relative grid grid-cols-5 min-h-screen bg-bg">
       <div className="flex flex-col justify-evenly min-h-screen items-center absolute w-full py-8 max-xl:gap-8">
         <div className="flex flex-col gap-8 items-center">
           <Logo text="Sárdi Balázs" />
@@ -24,8 +24,8 @@ export default function Home() {
             to="works"
           />
           <MainButton
-            title="About Me"
-            desc="Get to know who I am and how I got into front-end development."
+            title="Contact Me"
+            desc="Drop me a message if you want to work together or just say hi."
             image="aboutme.svg"
             to="contact"
           />

@@ -1,20 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200..800&display=swap");
+
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-darkblue: rgba(0, 2, 40, 1)
-  --color-secondarytext:  rgba(77, 77, 77, 1);
-  --color-lines: rgba(244, 244, 244, 1);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #fafafa;
+  --color-darkblue: rgba(0, 2, 40, 1);
+  --color-blue: #1d3dc4;
+  --color-secondarytext: rgba(77, 77, 77, 1);
+  --color-lines: #f4f4f4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: "Manroope", sans-serif;
 }
 
 .hoverBox {

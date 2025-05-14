@@ -1,3 +1,5 @@
+import { libre } from "../fonts";
+
 export default function Logo({ text }: { text: string }) {
   return (
     <div
@@ -37,7 +39,7 @@ export default function Logo({ text }: { text: string }) {
                 borderRadius: "12px",
               }}
             >
-              <p className="text-3xl">{text}</p>
+              <p className={`text-3xl ${libre.className}`}>{text}</p>
             </div>
           </div>
         </div>
