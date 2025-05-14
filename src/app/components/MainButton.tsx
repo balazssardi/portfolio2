@@ -17,7 +17,7 @@ export default function MainButton({
   to: string;
 }) {
   const [style, setStyle] = useState({});
-  const div = useRef<HTMLDivElement>(null);
+  const div = useRef<HTMLAnchorElement>(null);
   function mouseMoveHandler(
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
