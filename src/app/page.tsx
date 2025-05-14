@@ -14,7 +14,7 @@ export default function Home() {
           <MainButton
             title="About Me"
             desc="Get to know who I am and how I got into front-end development."
-            image="aboutme.svg"
+            image="aboutme.webp"
             to="about"
           />
           <MainButton
@@ -26,7 +26,7 @@ export default function Home() {
           <MainButton
             title="Contact Me"
             desc="Drop me a message if you want to work together or just say hi."
-            image="aboutme.svg"
+            image="aboutme.webp"
             to="contact"
           />
         </div>
