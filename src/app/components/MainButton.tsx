@@ -22,7 +22,7 @@ export default function MainButton({
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
     const rect = div.current?.getBoundingClientRect();
-    if (rect!) return;
+    if (!rect) return;
     const x = e.clientX - rect!.left;
     const y = e.clientY - rect!.top;
     setStyle({ "--x": `${x}px`, "--y": `${y}px` });
