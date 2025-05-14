@@ -18,7 +18,9 @@ export default function MainButton({
 }) {
   const [style, setStyle] = useState({});
   const div = useRef(null);
-  function mouseMoveHandler(e) {
+  function mouseMoveHandler(
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) {
     const rect = div.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
