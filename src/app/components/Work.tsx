@@ -10,7 +10,7 @@ export default function Work({
   work: { name: string; image: string; link: string };
   index: number;
 }) {
-  const delay = index / 5;
+  const delay = index / 10;
   return (
     <motion.div
       className="h-auto p-2 bg-white rounded-3xl cursor-pointer"
