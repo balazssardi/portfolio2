@@ -2,25 +2,28 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { libre } from "../fonts";
+import { motion } from "motion/react";
 
 export default function MainButton({
   title,
   desc,
   image,
   to,
+  index,
 }: {
   title: string;
   desc: string;
   image: string;
   to: string;
+  index: number;
 }) {
   const [style, setStyle] = useState({});
-  const div = useRef<HTMLAnchorElement>(null);
-  function mouseMoveHandler(
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) {
+  const delay = index / 5;
+  const router = useRouter();
+  const div = useRef<HTMLDivElement>(null);
+  function mouseMoveHandler(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const rect = div.current?.getBoundingClientRect();
     if (!rect) return;
     const x = e.clientX - rect!.left;
@@ -28,12 +31,15 @@ export default function MainButton({
     setStyle({ "--x": `${x}px`, "--y": `${y}px` });
   }
   return (
-    <Link
+    <motion.div
       className="hoverBox flex rounded-3xl drop-shadow-lg"
       style={style}
       onMouseMove={mouseMoveHandler}
       ref={div}
-      href={to}
+      onClick={() => router.push(to)}
+      initial={{ transform: "translateY(40px)", opacity: 0 }}
+      whileInView={{ transform: "none", opacity: 1 }}
+      transition={{ delay: delay, duration: 0.2 }}
     >
       <div
         className="p-0.5 rounded-[20px]"
@@ -60,6 +66,6 @@ export default function MainButton({
           />
         </div>
       </div>
-    </Link>
+    </motion.div>
   );
 }
