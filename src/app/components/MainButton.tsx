@@ -39,6 +39,7 @@ export default function MainButton({
       onClick={() => router.push(to)}
       initial={{ transform: "translateY(40px)", opacity: 0 }}
       whileInView={{ transform: "none", opacity: 1 }}
+      viewport={{ once: true }}
       transition={{ delay: delay, duration: 0.2 }}
     >
       <div

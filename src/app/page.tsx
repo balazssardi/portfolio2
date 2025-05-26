@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 
 export default function Home() {
   return (
-    <div className="relative grid grid-cols-5 min-h-screen bg-bg">
-      <div className="flex flex-col justify-evenly min-h-screen items-center absolute w-full py-8 max-xl:gap-8">
+    <div className="relative w-full min-h-screen">
+      <div className="flex flex-col justify-evenly min-h-screen items-center w-full py-8 max-xl:gap-8">
         <motion.div
           className="flex flex-col gap-8 items-center"
           initial={{ opacity: 0 }}
@@ -21,7 +21,7 @@ export default function Home() {
           <MainButton
             title="About Me"
             desc="Get to know who I am and how I got into front-end development."
-            image="aboutme.png"
+            image="aboutme.svg"
             to="about"
             index={1}
           />
@@ -35,17 +35,19 @@ export default function Home() {
           <MainButton
             title="Contact Me"
             desc="Drop me a message if you want to work together or just say hi."
-            image="aboutme.png"
+            image="contact.svg"
             to="contact"
             index={3}
           />
         </div>
       </div>
-      <div className="border-l border-lines h-full max-xl:hidden"></div>
-      <div className="border-x mr-6 border-lines h-full max-xl:hidden"></div>
-      <div className="border-x mx-2 border-lines h-full max-xl:hidden"></div>
-      <div className="border-x ml-6 border-lines h-full max-xl:hidden"></div>
-      <div className="border-r border-lines h-full max-xl:hidden"></div>
+      <div className="absolute h-full w-full grid grid-cols-5 max-xl:grid-cols-3 -z-10 bg-bg left-0 top-0">
+        <div className="border-l border-lines h-full"></div>
+        <div className="border-x mr-6 border-lines h-full max-xl:hidden"></div>
+        <div className="border-x xl:mx-2 border-lines h-full"></div>
+        <div className="border-x ml-6 border-lines h-full max-xl:hidden"></div>
+        <div className="border-r border-lines h-full"></div>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 export default function Works() {
   return (
     <div className="relative">
-      <div className="w-full min-h-screen relative top-0 left-0">
+      <div className="w-full min-h-screen relative">
         <div className="absolute h-full w-full grid grid-cols-5 max-xl:grid-cols-3 -z-10 bg-bg">
           <div className="border-l border-lines h-full"></div>
           <div className="border-x mr-6 border-lines h-full max-xl:hidden"></div>
@@ -22,6 +22,7 @@ export default function Works() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
+          viewport={{ once: true }}
         >
           <div className="flex flex-col gap-4">
             <Logo text="Works" />

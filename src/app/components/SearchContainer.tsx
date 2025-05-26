@@ -45,9 +45,10 @@ export default function SearchContainer() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Type here to search..."
-        className="w-96 border border-[#E5E5E5] px-4 py-3 rounded-full bg-[#FFF]"
+        className="w-96 border border-[#E5E5E5] px-4 py-3 rounded-full bg-[#FFF] focus:outline-0"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.2, delay: 0.2 }}
       />
       <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 items-center justify-center">
