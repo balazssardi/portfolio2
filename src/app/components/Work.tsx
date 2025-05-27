@@ -3,12 +3,21 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 
 export default function Work({
   work,
   index,
 }: {
-  work: { name: string; image: string; link: string };
+  work: {
+    name: string;
+    shortDesc: string;
+    longDesc: string;
+    image: string;
+    link: string;
+    year: string;
+    technologies: Array<string>;
+  };
   index: number;
 }) {
   const delay = index / 10;
@@ -35,31 +44,46 @@ export default function Work({
         alt="Work image"
       />
       <div
-        className={`absolute left-0 bottom-0 px-4 py-3 flex w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all ${
+        className={`absolute left-0 bottom-0 px-4 py-3 flex flex-col w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all overflow-hidden  ${
           hover
-            ? "h-[calc(100%-16px)] rounded-2xl bg-[linear-gradient(180deg,_rgba(244,_244,_244,_1.00)_0%,_rgba(244,_244,_244,_1.00)_100%)] items-start"
-            : "h-1/2 bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.00)_0%,_rgba(244,_244,_244,_0.95)_45.67%)] items-end"
+            ? "h-[calc(100%-16px)] rounded-2xl bg-[linear-gradient(180deg,_rgba(244,_244,_244,_1.00)_0%,_rgba(244,_244,_244,_1.00)_100%)] justify-between"
+            : "h-1/2 bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.00)_0%,_rgba(244,_244,_244,_0.95)_45.67%)] justify-end"
         }`}
       >
         <div className="flex flex-row justify-between w-full">
-          <div className="">
-            <p className="text-lg font-medium">Opes</p>
-            <p className="text-secondarytext fonnt-medium">
-              Graphic Designer&apos;s Landing
+          <div className="flex flex-col gap-1">
+            <p className="text-lg font-medium capitalize">{work.name}</p>
+            <p className="text-secondarytext font-medium text-sm">
+              {hover ? work.longDesc : work.shortDesc}
             </p>
           </div>
-          <div className="bg-white flex flex-col items-center rounded-xl overflow-hidden h-min">
+          <div className="bg-white flex flex-col items-center rounded-xl overflow-hidden h-min min-w-fit">
             <div className="py-1.5 px-2 bg-black w-full flex flex-row gap-0.75">
+              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
               <span className=" bg-[#333333] w-1 h-1 rounded-full" />
               <span className=" bg-[#333333] w-1 h-1 rounded-full" />
               <span className=" bg-[#333333] w-1 h-1 rounded-full" />
               <span className=" bg-[#333333] w-1 h-1 rounded-full" />
             </div>
             <p className="flex items-center text-sm font-bold leading-none py-2.5 h-full">
-              2025
+              {work.year}
             </p>
           </div>
         </div>
+        {hover ? (
+          <div className="flex flex-row gap-1">
+            {work.technologies.map((item, index) => (
+              <Icon
+                icon={`skill-icons:${item}-dark`}
+                width="32"
+                height="32"
+                key={index}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </motion.div>
   );

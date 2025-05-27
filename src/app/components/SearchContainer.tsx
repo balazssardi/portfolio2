@@ -5,38 +5,111 @@ import { motion } from "motion/react";
 
 import { useState } from "react";
 
-const items: { name: string; image: string; link: string }[] = [
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
-  { name: "opes", image: "/works/opes.png", link: "https://opes.hu" },
+const items: {
+  name: string;
+  shortDesc: string;
+  longDesc: string;
+  image: string;
+  link: string;
+  year: string;
+  technologies: Array<string>;
+}[] = [
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
+  {
+    name: "opes",
+    image: "/works/opes.png",
+    link: "https://opes.hu",
+    shortDesc: "Graphic Designer’s Landing",
+    longDesc:
+      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+    year: "2025",
+    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+  },
 ];
 
 export default function SearchContainer() {
   const [search, setSearch] = useState("");
   const currentArr = items.filter((item) => {
-    return search ? item.name.includes(search) : true;
+    return search ? item.name.includes(search.toLowerCase()) : true;
   });
   return (
     <div className="flex flex-col items-center gap-12">
