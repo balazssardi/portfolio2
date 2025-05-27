@@ -157,7 +157,7 @@ export default function SearchContainer() {
           transition={{ duration: 0.2, delay: 0.2 }}
         />
         <div
-          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 ${
+          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-20 ${
             isFilterOpen
               ? "w-full h-fit bg-white border border-[#E5E5E5]"
               : "w-[50px] border-[transparent] bg-transparent"
@@ -192,6 +192,12 @@ export default function SearchContainer() {
               transition={{ delay: 0.2 }}
               className={` flex flex-row gap-4 flex-wrap w-[calc(100%-50px)]`}
             >
+              <p
+                className="w-full font-medium text-lg leading-none
+              "
+              >
+                Filters
+              </p>
               {usedTechnologies.map((technology) => (
                 <CheckBox
                   label={technology}
