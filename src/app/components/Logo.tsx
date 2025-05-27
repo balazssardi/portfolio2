@@ -1,9 +1,17 @@
 import { libre } from "../fonts";
 
-export default function Logo({ text }: { text: string }) {
+export default function Logo({
+  text,
+  className = "",
+  fontSize = "30px",
+}: {
+  text: string;
+  className?: string;
+  fontSize?: string;
+}) {
   return (
     <div
-      className="w-fit p-1 text-white"
+      className={`w-fit p-1 text-white ${className}`}
       style={{
         boxShadow: "0px 10px 30px 0px rgba(0, 0, 0, 0.05)",
         background: "linear-gradient(180deg, #F1F1F1 0%, #A2B7CC 100%)",
@@ -32,14 +40,19 @@ export default function Logo({ text }: { text: string }) {
             }}
           >
             <div
-              className="px-2 py-1"
+              className="px-2 py-0.5"
               style={{
                 background:
                   "radial-gradient(100% 100% at 50% 100%, #000E8A 0%, #2A8DFF 100%)",
                 borderRadius: "12px",
               }}
             >
-              <p className={`text-3xl ${libre.className}`}>{text}</p>
+              <p
+                className={`${libre.className}`}
+                style={{ fontSize: fontSize }}
+              >
+                {text}
+              </p>
             </div>
           </div>
         </div>

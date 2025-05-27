@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import Logo from "./Logo";
 
 export default function Work({
   work,
@@ -17,6 +18,7 @@ export default function Work({
     link: string;
     year: string;
     technologies: Array<string>;
+    id: number;
   };
   index: number;
 }) {
@@ -36,6 +38,15 @@ export default function Work({
         setHover(false);
       }}
     >
+      {work.id === 0 ? (
+        <Logo
+          text={"Newest"}
+          fontSize="18px"
+          className="absolute z-20 left-1/2 -translate-x-1/2 -top-6"
+        />
+      ) : (
+        ""
+      )}
       <Image
         className="rounded-[16px] shadow-[0px_4px_8px_0px_rgba(0,_0,_0,_0.05)] mb-8"
         src={work.image}
