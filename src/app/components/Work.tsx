@@ -26,7 +26,8 @@ export default function Work({
   const [hover, setHover] = useState<boolean>(false);
   return (
     <motion.div
-      className="h-auto p-2 bg-white rounded-3xl cursor-pointer relative"
+      className="h-auto p-2 bg-white rounded-3xl cursor-pointer relative select-none
+      "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, delay: delay }}
