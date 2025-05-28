@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import Work from "./Work";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import CheckBox from "./CheckBox";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
@@ -126,8 +126,6 @@ export default function SearchContainer() {
   const [filter, setFilter] = useState<Array<string>>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const filterRef = useRef(null);
-
   const currentArr = items.filter((item) => {
     return search ? item.name.includes(search.toLowerCase()) : true;
   });
@@ -159,12 +157,11 @@ export default function SearchContainer() {
           transition={{ duration: 0.2, delay: 0.2 }}
         />
         <div
-          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-20 ${
+          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 ${
             isFilterOpen
-              ? "w-full h-fit bg-white border border-[#E5E5E5]"
-              : "w-[50px] border-[transparent] bg-transparent"
+              ? "w-full h-33 bg-white border border-[#E5E5E5]"
+              : "w-[50px] h-[50px] border-transparent bg-transparent"
           }`}
-          ref={filterRef}
         >
           <button
             className="w-[50px] h-[50px] absolute top-0 right-0 flex items-center justify-center"
@@ -188,29 +185,31 @@ export default function SearchContainer() {
               />
             )}
           </button>
-          {isFilterOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className={` flex flex-row gap-4 flex-wrap w-[calc(100%-50px)]`}
-            >
-              <p
-                className="w-full font-medium text-lg leading-none
-              "
+          <AnimatePresence>
+            {isFilterOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className={` flex flex-row gap-4 flex-wrap w-[calc(100%-50px)]`}
               >
-                Filters
-              </p>
-              {usedTechnologies.map((technology) => (
-                <CheckBox
-                  label={technology}
-                  clickHandler={() => toggleTechnology(technology)}
-                  checked={filter.includes(technology)}
-                  key={technology}
-                />
-              ))}
-            </motion.div>
-          )}
+                <p
+                  className="w-full font-medium text-lg leading-none
+              "
+                >
+                  Filters
+                </p>
+                {usedTechnologies.map((technology) => (
+                  <CheckBox
+                    label={technology}
+                    clickHandler={() => toggleTechnology(technology)}
+                    checked={filter.includes(technology)}
+                    key={technology}
+                  />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
