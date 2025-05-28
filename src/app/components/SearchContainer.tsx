@@ -3,7 +3,7 @@ import Link from "next/link";
 import Work from "./Work";
 import { motion } from "motion/react";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CheckBox from "./CheckBox";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
@@ -126,6 +126,8 @@ export default function SearchContainer() {
   const [filter, setFilter] = useState<Array<string>>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  const filterRef = useRef(null);
+
   const currentArr = items.filter((item) => {
     return search ? item.name.includes(search.toLowerCase()) : true;
   });
@@ -162,6 +164,7 @@ export default function SearchContainer() {
               ? "w-full h-fit bg-white border border-[#E5E5E5]"
               : "w-[50px] border-[transparent] bg-transparent"
           }`}
+          ref={filterRef}
         >
           <button
             className="w-[50px] h-[50px] absolute top-0 right-0 flex items-center justify-center"
