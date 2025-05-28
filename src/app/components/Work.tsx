@@ -38,8 +38,8 @@ export default function Work({
       onMouseLeave={() => {
         setHover(false);
       }}
-      onTapStart={() => setHover(true)}
-      onTapCancel={() => setHover(false)}
+      onTouchEnd={() => setHover(false)}
+      onTouchStart={() => setHover(true)}
       onClick={(e) => e.preventDefault()}
     >
       {work.id === 0 ? (
