@@ -37,6 +37,8 @@ export default function Work({
       onMouseLeave={() => {
         setHover(false);
       }}
+      onTapStart={() => setHover(true)}
+      onTapCancel={() => setHover(false)}
     >
       {work.id === 0 ? (
         <Logo
