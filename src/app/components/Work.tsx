@@ -39,6 +39,7 @@ export default function Work({
       }}
       onTapStart={() => setHover(true)}
       onTapCancel={() => setHover(false)}
+      onTap={(e) => e.preventDefault()}
     >
       {work.id === 0 ? (
         <Logo
