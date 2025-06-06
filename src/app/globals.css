@@ -8,10 +8,28 @@
   --color-blue: #1d3dc4;
   --color-secondarytext: rgba(77, 77, 77, 1);
   --color-lines: #f4f4f4;
+  --color-workbg: #fcfcfc;
 }
 
 body {
   font-family: "Manroope", sans-serif;
+}
+
+.greygradientbg {
+  background: linear-gradient(180deg, #fff 0%, #b5d5f7 100%), #000;
+}
+
+.bluegradientbg {
+  background: radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
+    linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+}
+
+.worksbasebg {
+  background: linear-gradient(
+    180deg,
+    rgba(252, 252, 252, 0) 0%,
+    rgba(244, 244, 244, 1) 45.67%
+  );
 }
 
 .hoverBox {

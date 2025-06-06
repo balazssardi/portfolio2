@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import Logo from "./Logo";
+import WorksButton from "./WorksButton";
 
 export default function Work({
   work,
@@ -19,6 +20,7 @@ export default function Work({
     year: string;
     technologies: Array<string>;
     id: number;
+    state: string;
   };
   index: number;
 }) {
@@ -26,7 +28,7 @@ export default function Work({
   const [hover, setHover] = useState<boolean>(false);
   return (
     <motion.div
-      className="h-auto p-2 bg-white rounded-3xl cursor-pointer relative select-none
+      className="h-max p-2 bg-white rounded-3xl cursor-pointer relative select-none
       "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -52,7 +54,7 @@ export default function Work({
         ""
       )}
       <Image
-        className="rounded-[16px] shadow-[0px_4px_8px_0px_rgba(0,_0,_0,_0.05)] mb-8"
+        className="rounded-[16px] shadow-[0px_4px_8px_0px_rgba(0,_0,_0,_0.05)] mb-16"
         src={work.image}
         width={360}
         height={260}
@@ -61,8 +63,8 @@ export default function Work({
       <div
         className={`absolute left-0 bottom-0 px-4 py-3 flex flex-col w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all overflow-hidden  ${
           hover
-            ? "h-[calc(100%-16px)] rounded-2xl bg-[linear-gradient(180deg,_rgba(244,_244,_244,_1.00)_0%,_rgba(244,_244,_244,_1.00)_100%)] justify-between"
-            : "h-1/2 bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.00)_0%,_rgba(244,_244,_244,_0.95)_45.67%)] justify-end"
+            ? "h-[calc(100%-16px)] rounded-2xl bg-workbg justify-between"
+            : "h-1/2 worksbasebg justify-end"
         }`}
       >
         <div className="flex flex-row justify-between w-full">
@@ -86,16 +88,24 @@ export default function Work({
           </div>
         </div>
         {hover ? (
-          <div className="flex flex-row gap-1">
-            {work.technologies.map((item, index) => (
-              <Icon
-                icon={`skill-icons:${item}-dark`}
-                width="32"
-                height="32"
-                key={index}
-              />
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.05 }}
+            className="flex flex-col gap-2"
+          >
+            <div className="flex flex-row gap-1">
+              {work.technologies.map((item, index) => (
+                <Icon
+                  icon={`skill-icons:${item}-dark`}
+                  width="32"
+                  height="32"
+                  key={index}
+                />
+              ))}
+            </div>
+            <WorksButton state={work.state} to={work.link} />
+          </motion.div>
         ) : (
           ""
         )}

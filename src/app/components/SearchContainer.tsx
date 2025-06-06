@@ -16,6 +16,7 @@ const items: {
   year: string;
   technologies: Array<string>;
   id: number;
+  state: string;
 }[] = [
   {
     id: 0,
@@ -27,6 +28,7 @@ const items: {
       "Click here to contact me and let's agree on the exact details of your next project we can work on together! Whether it's a personal project or a job offer, you can do it here.",
     year: "NOW",
     technologies: ["react", "tailwindcss", "nextjs", "vercel", "vscode"],
+    state: "discontinued",
   },
   {
     id: 1,
@@ -38,6 +40,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "inprogress",
   },
   {
     id: 2,
@@ -49,6 +52,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel", "vscode"],
+    state: "visit",
   },
   {
     id: 3,
@@ -60,6 +64,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "visit",
   },
   {
     id: 4,
@@ -71,6 +76,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "visit",
   },
   {
     id: 5,
@@ -82,6 +88,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "visit",
   },
   {
     id: 6,
@@ -93,6 +100,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "visit",
   },
   {
     id: 7,
@@ -104,6 +112,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel"],
+    state: "visit",
   },
   {
     id: 8,
@@ -115,6 +124,7 @@ const items: {
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
     technologies: ["react", "tailwindcss", "nextjs", "vercel", "vuejs"],
+    state: "visit",
   },
 ];
 
@@ -139,7 +149,6 @@ export default function SearchContainer() {
     } else {
       setFilter((prev) => [...prev, item]);
     }
-    console.log(filter);
   };
 
   return (
@@ -188,6 +197,7 @@ export default function SearchContainer() {
           <AnimatePresence>
             {isFilterOpen && (
               <motion.div
+                key="filtermenu"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
