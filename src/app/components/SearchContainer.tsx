@@ -22,13 +22,23 @@ const items: {
     id: 0,
     name: "Your project",
     image: "/works/your.svg",
-    link: "https://opes.hu",
+    link: "/contact",
     shortDesc: "Yes, this is your next project!",
     longDesc:
       "Click here to contact me and let's agree on the exact details of your next project we can work on together! Whether it's a personal project or a job offer, you can do it here.",
     year: "NOW",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel", "vscode"],
-    state: "discontinued",
+    technologies: [
+      "React",
+      "TailwindCSS",
+      "NextJS",
+      "Vercel",
+      "VScode",
+      "Golang",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    state: "contact",
   },
   {
     id: 1,
@@ -39,92 +49,46 @@ const items: {
     longDesc:
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "inprogress",
+    technologies: ["React", "TailwindCSS", "NextJS", "Vercel"],
+    state: "visit",
   },
   {
     id: 2,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
+    name: "DiscordServers",
+    image: "/works/discordservers.png",
+    link: "/",
+    shortDesc: "Discord server advertisement platform",
     longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel", "vscode"],
-    state: "visit",
+      " The discordservers.hu is a discord server advertising site, with its own authentication system, ratings, comments, discord bot and bumping. A REST API written in Python using Flask framework served the site and its related services.",
+    year: "2023",
+    technologies: [
+      "VueJS",
+      "TailwindCSS",
+      "NuxtJS",
+      "Python",
+      "Flask",
+      "VScode",
+    ],
+    state: "discontinued",
   },
   {
     id: 3,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
+    name: "Toll",
+    image: "/works/toll.png",
+    link: "https://tolledu.hu",
+    shortDesc: "A blog for students",
     longDesc:
       "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
     year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "visit",
-  },
-  {
-    id: 4,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
-    longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "visit",
-  },
-  {
-    id: 5,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
-    longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "visit",
-  },
-  {
-    id: 6,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
-    longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "visit",
-  },
-  {
-    id: 7,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
-    longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel"],
-    state: "visit",
-  },
-  {
-    id: 8,
-    name: "opes",
-    image: "/works/opes.png",
-    link: "https://opes.hu",
-    shortDesc: "Graphic Designer’s Landing",
-    longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
-    year: "2025",
-    technologies: ["react", "tailwindcss", "nextjs", "vercel", "vuejs"],
-    state: "visit",
+    technologies: [
+      "React",
+      "TailwindCSS",
+      "NextJS",
+      "Vercel",
+      "Golang",
+      "VScode",
+    ],
+    state: "inprogress",
   },
 ];
 
@@ -168,7 +132,7 @@ export default function SearchContainer() {
         <div
           className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 ${
             isFilterOpen
-              ? "w-full h-33 bg-white border border-[#E5E5E5]"
+              ? "w-full h-62 bg-white border border-[#E5E5E5]"
               : "w-[50px] h-[50px] border-transparent bg-transparent"
           }`}
         >

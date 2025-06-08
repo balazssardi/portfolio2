@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import Logo from "./Logo";
 import WorksButton from "./WorksButton";
+import CalendarIcon from "./CalendarIcon";
 
 export default function Work({
   work,
@@ -24,11 +25,12 @@ export default function Work({
   };
   index: number;
 }) {
+  const withoutdark = ["golang"];
   const delay = index / 10;
   const [hover, setHover] = useState<boolean>(false);
   return (
     <motion.div
-      className="h-max p-2 bg-white rounded-3xl cursor-pointer relative select-none
+      className="h-72 p-2 bg-white rounded-3xl cursor-pointer relative select-none
       "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -40,9 +42,7 @@ export default function Work({
       onMouseLeave={() => {
         setHover(false);
       }}
-      onTouchEnd={() => setHover(false)}
-      onTouchStart={() => setHover(true)}
-      onClick={(e) => e.preventDefault()}
+      onTouchEnd={() => setHover((prev) => !prev)}
     >
       {work.id === 0 ? (
         <Logo
@@ -74,18 +74,7 @@ export default function Work({
               {hover ? work.longDesc : work.shortDesc}
             </p>
           </div>
-          <div className="bg-white flex flex-col items-center rounded-xl overflow-hidden h-min min-w-fit">
-            <div className="py-1.5 px-2 bg-black w-full flex flex-row gap-0.75">
-              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
-              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
-              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
-              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
-              <span className=" bg-[#333333] w-1 h-1 rounded-full" />
-            </div>
-            <p className="flex items-center text-sm font-bold leading-none py-2.5 h-full">
-              {work.year}
-            </p>
-          </div>
+          <CalendarIcon year={work.year} />
         </div>
         {hover ? (
           <motion.div
@@ -97,7 +86,10 @@ export default function Work({
             <div className="flex flex-row gap-1">
               {work.technologies.map((item, index) => (
                 <Icon
-                  icon={`skill-icons:${item}-dark`}
+                  icon={`skill-icons:${
+                    item.toLowerCase() +
+                    (withoutdark.includes(item.toLowerCase()) ? "" : "-dark")
+                  }`}
                   width="32"
                   height="32"
                   key={index}

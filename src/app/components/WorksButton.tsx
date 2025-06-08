@@ -14,6 +14,8 @@ export default function WorksButton({
       ? "In Progress..."
       : state === "discontinued"
       ? "Discontinued"
+      : state === "contact"
+      ? "Contact Me"
       : "Visit Website";
   const disabled = state === "inprogress" || state === "discontinued";
   function clickHandler() {
@@ -40,6 +42,8 @@ export default function WorksButton({
               ? "line-md:loading-twotone-loop"
               : state === "discontinued"
               ? "line-md:close"
+              : state === "contact"
+              ? "line-md:email"
               : "line-md:external-link"
           }
           width="20"

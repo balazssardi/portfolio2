@@ -25,7 +25,7 @@ export default function Logo({
         }}
       >
         <div
-          className="p-0.5"
+          className="p-0.25"
           style={{
             background:
               "radial-gradient(100% 100% at 50% 100%, #000E8A 0%, #2A8DFF 100%)",
@@ -36,7 +36,7 @@ export default function Logo({
             className="p-0.25"
             style={{
               background: "linear-gradient(180deg, #1D3DC4 0%, #031B6C 100%)",
-              borderRadius: "13px",
+              borderRadius: "14px",
             }}
           >
             <div
@@ -44,7 +44,7 @@ export default function Logo({
               style={{
                 background:
                   "radial-gradient(100% 100% at 50% 100%, #000E8A 0%, #2A8DFF 100%)",
-                borderRadius: "12px",
+                borderRadius: "13px",
               }}
             >
               <p
