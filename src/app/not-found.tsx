@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import MainText from "./components/MainText";
 import Logo from "./components/Logo";
 import { libre } from "./fonts";
 import Link from "next/link";
@@ -64,7 +63,7 @@ export default function Error() {
               lets work together!
             </p>
 
-            <div className="flex flex-row w-full gap-2">
+            <div className="flex xl:flex-row max-xl:flex-col w-full gap-2">
               <Link className="sendbutton" href="/">
                 <Icon
                   icon="line-md:arrow-left"
