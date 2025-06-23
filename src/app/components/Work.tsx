@@ -6,13 +6,15 @@ import { Icon } from "@iconify/react";
 import Logo from "./Logo";
 import WorksButton from "./WorksButton";
 import CalendarIcon from "./CalendarIcon";
-import { Dispatch, SetStateAction } from "react";
 
 export default function Work({
   work,
   index,
-  setActiveIndex,
-  activeIndex,
+  tapHandler,
+  mouseEnterHandler,
+  mouseLeaveHandler,
+  activeMouse,
+  activeTap,
 }: {
   work: {
     name: string;
@@ -26,8 +28,11 @@ export default function Work({
     state: string;
   };
   index: number;
-  activeIndex: number | null;
-  setActiveIndex: Dispatch<SetStateAction<number | null>>;
+  activeTap: number | null;
+  activeMouse: number | null;
+  tapHandler: () => void;
+  mouseEnterHandler: () => void;
+  mouseLeaveHandler: () => void;
 }) {
   const withoutdark = ["golang"];
   const delay = index / 10;
@@ -39,13 +44,10 @@ export default function Work({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, delay: delay }}
       viewport={{ once: true }}
-      onMouseEnter={() => {
-        setActiveIndex(index);
-      }}
-      onMouseLeave={() => {
-        setActiveIndex(null);
-      }}
-      onTap={() => setActiveIndex((prev) => (prev === index ? null : index))}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
+      onTap={tapHandler}
+      style={{ touchAction: "pan-y" }}
     >
       {work.id === 0 ? (
         <Logo
@@ -65,7 +67,7 @@ export default function Work({
       />
       <div
         className={`absolute left-0 bottom-0 px-4 py-3 flex flex-col w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all overflow-hidden  ${
-          activeIndex === index
+          activeMouse === index || activeTap === index
             ? "h-[calc(100%-16px)] rounded-2xl bg-workbg justify-between"
             : "h-1/2 worksbasebg justify-end"
         }`}
@@ -74,12 +76,14 @@ export default function Work({
           <div className="flex flex-col gap-1">
             <p className="text-lg font-medium capitalize">{work.name}</p>
             <p className="text-secondarytext font-medium text-sm">
-              {activeIndex === index ? work.longDesc : work.shortDesc}
+              {activeMouse === index || activeTap === index
+                ? work.longDesc
+                : work.shortDesc}
             </p>
           </div>
           <CalendarIcon year={work.year} />
         </div>
-        {activeIndex === index ? (
+        {activeMouse === index || activeTap === index ? (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

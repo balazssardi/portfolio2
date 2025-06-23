@@ -99,7 +99,8 @@ export default function SearchContainer() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<Array<string>>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeMouse, setActiveMouse] = useState<number | null>(null);
+  const [activeTap, setActiveTap] = useState<number | null>(null);
   const currentArr = items.filter((item) => {
     return search ? item.name.includes(search.toLowerCase()) : true;
   });
@@ -115,6 +116,20 @@ export default function SearchContainer() {
     }
   };
 
+  const handleTap = (index: number) => {
+    setActiveTap((prev) => {
+      if (prev === index) return null;
+      return index;
+    });
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setActiveMouse(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveMouse(null);
+  };
   return (
     <div className="flex flex-col items-center gap-12">
       <div className="flex flex-row gap-4 relative">
@@ -194,8 +209,11 @@ export default function SearchContainer() {
               key={item.id}
               work={item}
               index={index}
-              activeIndex={activeIndex}
-              setActiveIndex={setActiveIndex}
+              activeTap={activeTap}
+              activeMouse={activeMouse}
+              tapHandler={() => handleTap(index)}
+              mouseEnterHandler={() => handleMouseEnter(index)}
+              mouseLeaveHandler={handleMouseLeave}
             />
           ))
         ) : (
