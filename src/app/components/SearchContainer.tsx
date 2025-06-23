@@ -99,7 +99,7 @@ export default function SearchContainer() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<Array<string>>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const currentArr = items.filter((item) => {
     return search ? item.name.includes(search.toLowerCase()) : true;
   });
@@ -190,7 +190,13 @@ export default function SearchContainer() {
       <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 items-center justify-center">
         {currentFiltered.length > 0 ? (
           currentFiltered.map((item, index) => (
-            <Work key={item.id} work={item} index={index} />
+            <Work
+              key={item.id}
+              work={item}
+              index={index}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+            />
           ))
         ) : (
           <p className="text-center max-w-4xl col-span-3">
@@ -199,8 +205,8 @@ export default function SearchContainer() {
                 ? `If you have a project idea named ${search} with the selected technologies, `
                 : `If you have a project idea named ${search}, `
               : filter.length !== 0
-              ? `If you have a project idea with the selected technologies, `
-              : ``}
+                ? `If you have a project idea with the selected technologies, `
+                : ``}
             <Link href="/contact" className="text-[#0000ff]">
               contact me
             </Link>

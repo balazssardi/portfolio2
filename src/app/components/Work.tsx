@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useState } from "react";
 import { Icon } from "@iconify/react";
 import Logo from "./Logo";
 import WorksButton from "./WorksButton";
 import CalendarIcon from "./CalendarIcon";
+import { Dispatch, SetStateAction } from "react";
 
 export default function Work({
   work,
   index,
+  setActiveIndex,
+  activeIndex,
 }: {
   work: {
     name: string;
@@ -24,10 +26,11 @@ export default function Work({
     state: string;
   };
   index: number;
+  activeIndex: number | null;
+  setActiveIndex: Dispatch<SetStateAction<number | null>>;
 }) {
   const withoutdark = ["golang"];
   const delay = index / 10;
-  const [hover, setHover] = useState<boolean>(false);
   return (
     <motion.div
       className="h-72 p-2 bg-white rounded-3xl cursor-pointer relative select-none
@@ -37,12 +40,13 @@ export default function Work({
       transition={{ duration: 0.2, delay: delay }}
       viewport={{ once: true }}
       onMouseEnter={() => {
-        setHover(true);
+        setActiveIndex(0);
       }}
       onMouseLeave={() => {
-        setHover(false);
+        setActiveIndex(null);
       }}
-      onTap={() => setHover((prev) => !prev)}
+      onTap={() => setActiveIndex((prev) => (prev === index ? null : index))}
+      style={{ touchAction: "pan-y" }}
     >
       {work.id === 0 ? (
         <Logo
@@ -62,7 +66,7 @@ export default function Work({
       />
       <div
         className={`absolute left-0 bottom-0 px-4 py-3 flex flex-col w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all overflow-hidden  ${
-          hover
+          activeIndex === index
             ? "h-[calc(100%-16px)] rounded-2xl bg-workbg justify-between"
             : "h-1/2 worksbasebg justify-end"
         }`}
@@ -71,12 +75,12 @@ export default function Work({
           <div className="flex flex-col gap-1">
             <p className="text-lg font-medium capitalize">{work.name}</p>
             <p className="text-secondarytext font-medium text-sm">
-              {hover ? work.longDesc : work.shortDesc}
+              {activeIndex === index ? work.longDesc : work.shortDesc}
             </p>
           </div>
           <CalendarIcon year={work.year} />
         </div>
-        {hover ? (
+        {activeIndex === index ? (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
