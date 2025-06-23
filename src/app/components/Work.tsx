@@ -45,9 +45,7 @@ export default function Work({
       onMouseLeave={() => {
         setActiveIndex(null);
       }}
-      onTap={() =>
-        setActiveIndex((prev) => (prev === activeIndex ? null : activeIndex))
-      }
+      onTap={() => setActiveIndex((prev) => (prev === index ? null : index))}
     >
       {work.id === 0 ? (
         <Logo
