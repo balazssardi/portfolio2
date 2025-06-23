@@ -49,18 +49,12 @@ export default function ContactForm() {
 
   return (
     <motion.div
-      className="flex flex-row gap-8 rounded-4xl contactshadow bg-white p-2 xl:w-[calc(40%+16px)] max-xl:w-full"
+      className="flex xl:flex-row max-xl:flex-col xl:gap-8 rounded-4xl contactshadow bg-white p-2 xl:w-[calc(40%+16px)] max-xl:w-full"
       initial={{ transform: "translateY(40px)", opacity: 0 }}
       whileInView={{ transform: "none", opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div
-        className="p-2 rounded-[24px] border-border border w-full flex flex-col gap-3"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(252, 252, 252, 0.95) 0%, rgba(244, 244, 244, 0.95) 100%)",
-        }}
-      >
+      <div className="p-2 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(248,_248,_248,_0.95)_100%)] max-xl:border-b-0 max-xl:rounded-b-none">
         <h1 className={`leading-none text-[30px] ${libre.className} m-2`}>
           Email Me
         </h1>
@@ -78,30 +72,23 @@ export default function ContactForm() {
           placeholder="Type of Inquiry*"
         />
         <input
-          className="inputbox !rounded-b-2xl"
+          className="inputbox xl:!rounded-b-2xl"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email Address*"
         />
       </div>
-      <div
-        className="p-2 rounded-[24px] border-border border w-full flex flex-col gap-3"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(252, 252, 252, 0.95) 0%, rgba(244, 244, 244, 0.95) 100%)",
-        }}
-      >
+      <div className="p-2 max-xl:pt-1 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:bg-[linear-gradient(180deg,_rgba(248,_248,_248,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:border-t-0 max-xl:rounded-t-none">
         <div>
           <textarea
-            className="inputbox flex-1 h-56 !rounded-t-2xl"
+            className="inputbox flex-1 h-56 xl:!rounded-t-2xl"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Message...*"
           />
           <p className="text-xs text-secondarytext">* fields are required.</p>
         </div>
-
         <button
           className={`sendbutton !rounded-b-2xl ${
             disabled ? "disabledbutton" : ""
