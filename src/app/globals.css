@@ -9,6 +9,7 @@
   --color-secondarytext: rgba(77, 77, 77, 1);
   --color-lines: #f4f4f4;
   --color-workbg: #fcfcfc;
+  --color-border: #f1f1f1;
 }
 
 body {
@@ -20,7 +21,8 @@ body {
 }
 
 .bluegradientbg {
-  background: radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
+  background:
+    radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
     linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
 }
 
@@ -80,4 +82,35 @@ body {
     opacity: 1;
     margin-bottom: 0;
   }
+}
+
+.contactshadow {
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.gradienttext {
+  @apply font-medium;
+  background: linear-gradient(90deg, #ffffff, #b5d5f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inputbox {
+  @apply py-3 px-4 rounded-xl placeholder:text-secondarytext outline-0 w-full resize-none;
+  border: 0.5px solid #f1f1f1;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1) inset;
+  background: linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+}
+
+.sendbutton {
+  @apply w-full flex flex-row justify-center items-center gap-2 rounded-xl py-3 px-4 text-white cursor-pointer disabled:cursor-not-allowed transition-all;
+  background:
+    radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
+    linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+  border: 0.5px solid #f1f1f1;
+}
+
+.disabledbutton {
+  background: #ddd;
+  color: black;
 }

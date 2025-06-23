@@ -4,6 +4,8 @@ import Image from "next/image";
 import Logo from "../components/Logo";
 import contacticon from "../../../public/contact.svg";
 import Navbar from "../components/Navbar";
+import ContactForm from "../components/ContactForm";
+import ContactSocials from "../components/ContactSocials";
 
 export default function Contact() {
   return (
@@ -35,6 +37,10 @@ export default function Contact() {
             </p>
           </div>
         </motion.div>
+        <div className="flex xl:flex-row max-xl:flex-col gap-4 justify-center max-xl:px-4">
+          <ContactForm />
+          <ContactSocials />
+        </div>
         <Navbar />
       </div>
     </div>
