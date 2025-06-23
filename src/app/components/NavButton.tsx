@@ -14,7 +14,7 @@ export default function NavButton({
       href={to}
       className={`flex py-2 px-3 rounded-[10px] border-[0.5px] transition-all  ${
         active
-          ? "border-blue bg-[radial-gradient(100%_100%_at_50%_100%,_#000E8A_0%,_#2A8DFF_100%)]"
+          ? "border-blue bg-[radial-gradient(100%_100%_at_50%_100%,_#000E8A_0%,_#2A8DFF_100%)] rounded-full"
           : "border-[#E5E5E5] bg-[#FDFDFD] hover:bg-[#E5E5E5]"
       }`}
     >

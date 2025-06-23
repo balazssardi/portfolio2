@@ -1,7 +1,7 @@
 "use client";
 import Logo from "../components/Logo";
 import Image from "next/image";
-import banner from "../../../public/worksbanner.png";
+import worksicon from "../../../public/works.svg";
 import SearchContainer from "../components/SearchContainer";
 import Navbar from "../components/Navbar";
 import { motion } from "motion/react";
@@ -9,7 +9,16 @@ import { motion } from "motion/react";
 export default function Works() {
   return (
     <div className="relative">
-      <div className="w-full min-h-screen relative">
+      <div className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end">
+        <Image
+          alt="Works icon"
+          src={worksicon}
+          width={720}
+          height={720}
+          className="rotate-180"
+        />
+      </div>
+      <div className="w-full min-h-screen relative pb-24">
         <div className="absolute h-full w-full grid grid-cols-5 max-xl:grid-cols-3 -z-10 bg-bg">
           <div className="border-l border-lines h-full"></div>
           <div className="border-x mr-6 border-lines h-full max-xl:hidden"></div>
@@ -24,15 +33,14 @@ export default function Works() {
           transition={{ duration: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-center gap-8 xl:w-1/5 px-4 py-8">
             <Logo text="Works" />
-            <p className="max-w-sm">
+            <p className="max-w-sm text-center">
               A selection of responsive, user-centered web projects showcasing
               my expertise in front-end development and passion for creating
               exceptional digital experiences.
             </p>
           </div>
-          <Image src={banner} alt="Page banner" />
         </motion.div>
         <SearchContainer />
         <Navbar />
