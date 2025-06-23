@@ -40,13 +40,14 @@ export default function Work({
       transition={{ duration: 0.2, delay: delay }}
       viewport={{ once: true }}
       onMouseEnter={() => {
-        setActiveIndex(0);
+        setActiveIndex(index);
       }}
       onMouseLeave={() => {
         setActiveIndex(null);
       }}
-      onTap={() => setActiveIndex((prev) => (prev === index ? null : index))}
-      style={{ touchAction: "pan-y" }}
+      onTap={() =>
+        setActiveIndex((prev) => (prev === activeIndex ? null : activeIndex))
+      }
     >
       {work.id === 0 ? (
         <Logo
