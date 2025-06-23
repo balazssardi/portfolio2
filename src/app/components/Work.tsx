@@ -42,7 +42,7 @@ export default function Work({
       onMouseLeave={() => {
         setHover(false);
       }}
-      onTouchEnd={() => setHover((prev) => !prev)}
+      onTap={() => setHover((prev) => !prev)}
     >
       {work.id === 0 ? (
         <Logo
