@@ -13,6 +13,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           <Logo text="Sárdi Balázs" />
           <MainText />
