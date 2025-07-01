@@ -15,8 +15,11 @@ export default function RootLayout({
   useEffect(() => {
     const currtheme = localStorage.getItem("theme");
     if (currtheme !== "light" && currtheme !== "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
+      const detected = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+      setTheme(detected);
+      localStorage.setItem("theme", detected);
     } else {
       setTheme(currtheme);
     }
