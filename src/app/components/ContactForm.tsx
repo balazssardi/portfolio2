@@ -29,7 +29,7 @@ export default function ContactForm() {
         setSubject("");
         setMessage("");
       } else {
-        throw new Error("Hiba történt!");
+        throw new Error("Error while sending email!");
       }
     } catch {
       setStatus("error");

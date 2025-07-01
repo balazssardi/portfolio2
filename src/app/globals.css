@@ -61,6 +61,7 @@
     --gradient-mainhover: radial-gradient(
       #ff4f4f 0%,
       #0000ff 23.08%,
+      #0066ff 40.38%,
       #3f3f3f 64.42%,
       #3f3f3f 100%
     );
@@ -84,6 +85,21 @@
 
 body {
   font-family: "Manroope", sans-serif;
+}
+
+div,
+p,
+h1,
+button {
+  transition:
+    background,
+    color 0.2s ease-in-out;
+  transition:
+    border-color,
+    color 0.2s ease-in-out;
+  transition:
+    color,
+    0.2s ease-in-out;
 }
 .hoverBox {
   @apply relative bg-mainbg p-1.5 text-[1.2rem] border-0 cursor-pointer outline-0 overflow-hidden w-96 h-[420px];

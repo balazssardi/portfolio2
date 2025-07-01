@@ -8,7 +8,7 @@ export default function CalendarIcon({ year }: { year: string }) {
         <span className=" bg-[#333333] w-1 h-1 rounded-full" />
         <span className=" bg-[#333333] w-1 h-1 rounded-full" />
       </div>
-      <p className="flex items-center text-sm font-bold leading-none py-2.5 h-full">
+      <p className="flex items-center text-sm font-bold leading-none py-2.5 h-full text-black">
         {year}
       </p>
     </div>
