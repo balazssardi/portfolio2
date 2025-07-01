@@ -118,7 +118,6 @@ export default function SearchContainer() {
 
   const handleTap = (index: number) => {
     setActiveTap((prev) => {
-      console.log(prev + ", " + index);
       return prev === index ? null : index;
     });
     setActiveMouse((prev) => (prev === index ? null : index));
