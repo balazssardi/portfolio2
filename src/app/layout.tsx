@@ -1,19 +1,9 @@
 "use client";
 
-import { Icon } from "@iconify/react/dist/iconify.js";
 import "./globals.css";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-// export const metadata: Metadata = {
-//   title: "Sárdi Balázs - Frontend Developer",
-//   description:
-//     "I’m a Front-End Developer, passionate about creating intuitive and visually appealing web interfaces.",
-//   openGraph: {
-//     title: "Sárdi Balázs - Frontend Developer",
-//     description:
-//       "I’m a Front-End Developer, passionate about creating intuitive and visually appealing web interfaces.",
-//   },
-// };
+import ThemeSelector from "./components/ThemeSelector";
 
 export default function RootLayout({
   children,
@@ -45,33 +35,20 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme={theme}>
       <Head>
+        <title>Sárdi Balázs - Frontend Developer</title>
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+        <meta
+          name="description"
+          content="I’m a Front-End Developer, passionate about creating intuitive and visually appealing web interfaces."
+        />
+        <meta name="og:title" content="Sárdi Balázs - Frontend Developer" />
+        <meta
+          name="og:description"
+          content="I’m a Front-End Developer, passionate about creating intuitive and visually appealing web interfaces."
+        />
       </Head>
       <body className="bg-bg">
-        <button
-          className="absolute top-2 right-2 z-50 p-2 bg-mainbg border-border border rounded-xl"
-          onClick={handleSetTheme}
-        >
-          {theme === "dark" ? (
-            <Icon
-              icon={
-                "line-md:sunny-filled-loop-to-moon-filled-alt-loop-transition"
-              }
-              key={"dark"}
-              height={36}
-              width={36}
-              className="text-text transition-all"
-            />
-          ) : (
-            <Icon
-              icon={"line-md:moon-filled-to-sunny-filled-loop-transition"}
-              key={"light"}
-              height={36}
-              width={36}
-              className="text-text transition-all"
-            />
-          )}
-        </button>
+        <ThemeSelector theme={theme!} handleSetTheme={handleSetTheme} />
         {children}
       </body>
     </html>
