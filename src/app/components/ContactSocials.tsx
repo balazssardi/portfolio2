@@ -5,18 +5,12 @@ import SocialButton from "./SocialButton";
 export default function ContactSocials() {
   return (
     <motion.div
-      className="flex rounded-4xl bg-white p-2 xl:w-1/5 max-xl:w-full contactshadow"
+      className="flex rounded-4xl bg-mainbg p-2 xl:w-1/5 max-xl:w-full contactshadow"
       initial={{ transform: "translateY(40px)", opacity: 0 }}
       whileInView={{ transform: "none", opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div
-        className="p-4 rounded-[24px] border-border border w-full flex flex-col gap-3"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(252, 252, 252, 0.95) 0%, rgba(244, 244, 244, 0.95) 100%)",
-        }}
-      >
+      <div className="p-4 rounded-[24px] border-border border w-full flex flex-col gap-3 bg-(image:--gradient-contactbox) text-text">
         <h1 className={`leading-none text-[30px] ${libre.className} m-2`}>
           My Socials
         </h1>

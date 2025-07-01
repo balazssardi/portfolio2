@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 import Logo from "./Logo";
 import WorksButton from "./WorksButton";
 import CalendarIcon from "./CalendarIcon";
+import { useEffect, useState } from "react";
 
 export default function Work({
   work,
@@ -36,9 +37,13 @@ export default function Work({
 }) {
   const withoutdark = ["golang"];
   const delay = index / 10;
+  const [theme, setTheme] = useState<string | null>(null);
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme"));
+  }, [theme]);
   return (
     <motion.div
-      className="h-72 p-2 bg-white rounded-3xl cursor-pointer relative select-none
+      className="h-72 p-2 bg-lines rounded-3xl cursor-pointer relative select-none
       "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -69,12 +74,14 @@ export default function Work({
         className={`absolute left-0 bottom-0 px-4 py-3 flex flex-col w-[calc(100%-16px)] mb-2 mx-2 rounded-b-[16px] transition-all overflow-hidden  ${
           activeMouse === index || activeTap === index
             ? "h-[calc(100%-16px)] rounded-2xl bg-workbg justify-between"
-            : "h-1/2 worksbasebg justify-end"
+            : "h-1/2 bg-(image:--gradient-workitem) justify-end"
         }`}
       >
         <div className="flex flex-row justify-between w-full">
           <div className="flex flex-col gap-1">
-            <p className="text-lg font-medium capitalize">{work.name}</p>
+            <p className="text-lg font-medium capitalize text-text">
+              {work.name}
+            </p>
             <p className="text-secondarytext font-medium text-sm">
               {activeMouse === index || activeTap === index
                 ? work.longDesc
@@ -95,7 +102,11 @@ export default function Work({
                 <Icon
                   icon={`skill-icons:${
                     item.toLowerCase() +
-                    (withoutdark.includes(item.toLowerCase()) ? "" : "-dark")
+                    (withoutdark.includes(item.toLowerCase())
+                      ? ""
+                      : theme === "dark"
+                        ? "-light"
+                        : "-dark")
                   }`}
                   width="32"
                   height="32"

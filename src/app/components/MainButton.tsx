@@ -42,13 +42,7 @@ export default function MainButton({
       viewport={{ once: true }}
       transition={{ delay: delay, duration: 0.2 }}
     >
-      <div
-        className="w-full h-full rounded-[20px] flex justify-evenly items-center flex-col text-center text-black p-4 border border-[#ECECEC] backdrop-blur-2xl"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(252, 252, 252, 0.85) 0%, rgba(244, 244, 244, 0.85) 100%)",
-        }}
-      >
+      <div className="w-full h-full rounded-[20px] flex justify-evenly items-center flex-col text-center text-text p-4 border border-border backdrop-blur-2xl bg-(image:--gradient-mainbuttonbg)">
         <h1 className={`leading-none text-[30px] ${libre.className}`}>
           {title}
         </h1>

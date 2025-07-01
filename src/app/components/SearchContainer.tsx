@@ -139,16 +139,16 @@ export default function SearchContainer() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Type here to search..."
-          className="w-96 border border-[#E5E5E5] px-4 py-3 rounded-full bg-[#FFF] focus:outline-0"
+          className="w-96 border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.2, delay: 0.2 }}
         />
         <div
-          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 ${
+          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 text-text ${
             isFilterOpen
-              ? "w-full h-62 bg-white border border-[#E5E5E5]"
+              ? "w-full h-62 bg-mainbg border border-border"
               : "w-[50px] h-[50px] border-transparent bg-transparent"
           }`}
         >
@@ -218,7 +218,7 @@ export default function SearchContainer() {
             />
           ))
         ) : (
-          <p className="text-center max-w-4xl col-span-3">
+          <p className="text-center max-w-4xl col-span-3 text-text">
             {search
               ? filter.length !== 0
                 ? `If you have a project idea named ${search} with the selected technologies, `
@@ -226,7 +226,7 @@ export default function SearchContainer() {
               : filter.length !== 0
                 ? `If you have a project idea with the selected technologies, `
                 : ``}
-            <Link href="/contact" className="text-[#0000ff]">
+            <Link href="/contact" className="text-blue">
               contact me
             </Link>
             !

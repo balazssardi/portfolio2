@@ -46,8 +46,7 @@ export default function Error() {
               <span
                 role="h1"
                 style={{
-                  background:
-                    "radial-gradient(100% 100% at 50% 100%, rgba(0, 14, 138, 0.5) 0%, #2A8DFF 100%)",
+                  background: "var(--gradient-blue)",
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
                   color: "transparent",

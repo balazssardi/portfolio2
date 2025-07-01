@@ -41,7 +41,7 @@ export default function Works() {
         >
           <div className="flex flex-col items-center gap-8 xl:w-1/5 px-4 py-8">
             <Logo text="Works" />
-            <p className="max-w-sm text-center">
+            <p className="max-w-sm text-center text-text">
               A selection of responsive, user-centered web projects showcasing
               my expertise in front-end development and passion for creating
               exceptional digital experiences.

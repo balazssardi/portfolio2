@@ -49,12 +49,12 @@ export default function ContactForm() {
 
   return (
     <motion.div
-      className="flex xl:flex-row max-xl:flex-col xl:gap-8 rounded-4xl contactshadow bg-white p-2 xl:w-[calc(40%+16px)] max-xl:w-full"
+      className="flex xl:flex-row max-xl:flex-col xl:gap-8 rounded-4xl contactshadow bg-mainbg p-2 xl:w-[calc(40%+16px)] max-xl:w-full"
       initial={{ transform: "translateY(40px)", opacity: 0 }}
       whileInView={{ transform: "none", opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div className="p-2 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(248,_248,_248,_0.95)_100%)] max-xl:border-b-0 max-xl:rounded-b-none">
+      <div className="p-2 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-(image:--gradient-contactbox) max-xl:bg-(image:--gradient-contactbox1) max-xl:border-b-0 max-xl:rounded-b-none text-text">
         <h1 className={`leading-none text-[30px] ${libre.className} m-2`}>
           Email Me
         </h1>
@@ -79,7 +79,7 @@ export default function ContactForm() {
           placeholder="Email Address*"
         />
       </div>
-      <div className="p-2 max-xl:pt-1 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-[linear-gradient(180deg,_rgba(252,_252,_252,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:bg-[linear-gradient(180deg,_rgba(248,_248,_248,_0.95)_0%,_rgba(244,_244,_244,_0.95)_100%)] max-xl:border-t-0 max-xl:rounded-t-none">
+      <div className="p-2 max-xl:pt-1 rounded-[24px] border-border border w-full flex flex-col gap-3 xl:bg-(image:--gradient-contactbox) max-xl:bg-(image:--gradient-contactbox2) max-xl:border-t-0 max-xl:rounded-t-none">
         <div>
           <textarea
             className="inputbox flex-1 h-56 xl:!rounded-t-2xl"
@@ -115,7 +115,7 @@ export default function ContactForm() {
               key={"success"}
             />
           )}
-          <p>
+          <p className="text-text">
             {status === ""
               ? "Send Mail"
               : status === "loading"

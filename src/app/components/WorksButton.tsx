@@ -13,10 +13,10 @@ export default function WorksButton({
     state === "inprogress"
       ? "In Progress..."
       : state === "discontinued"
-      ? "Discontinued"
-      : state === "contact"
-      ? "Contact Me"
-      : "Visit Website";
+        ? "Discontinued"
+        : state === "contact"
+          ? "Contact Me"
+          : "Visit Website";
   const disabled = state === "inprogress" || state === "discontinued";
   function clickHandler() {
     if (!disabled) router.push(to);
@@ -27,13 +27,13 @@ export default function WorksButton({
       className={`w-full h-12 rounded-[10px] p-0.5 ${
         disabled
           ? "bg-lines cursor-not-allowed"
-          : "greygradientbg cursor-pointer"
+          : "bg-(image:--gradient-grey) cursor-pointer"
       }`}
       onClick={clickHandler}
     >
       <div
         className={` w-full h-full rounded-md flex justify-center items-center gap-1
-             ${disabled ? "bg-lines text-black" : "bluegradientbg text-white"}`}
+             ${disabled ? "bg-lines text-text" : "bg-(image:--gradient-blue) text-white"}`}
       >
         {text}
         <Icon
@@ -41,10 +41,10 @@ export default function WorksButton({
             state === "inprogress"
               ? "line-md:loading-twotone-loop"
               : state === "discontinued"
-              ? "line-md:close"
-              : state === "contact"
-              ? "line-md:email"
-              : "line-md:external-link"
+                ? "line-md:close"
+                : state === "contact"
+                  ? "line-md:email"
+                  : "line-md:external-link"
           }
           width="20"
           height="20"

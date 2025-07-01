@@ -36,7 +36,7 @@ export default function Contact() {
         >
           <div className="flex flex-col items-center gap-8 xl:w-1/5 px-4 py-8">
             <Logo text="Contact" />
-            <p className="max-w-sm text-center">
+            <p className="max-w-sm text-center text-text">
               Feel free to reach out for collaborations, project inquiries, or
               just to connect <br /> I’m always open to new opportunities and
               creative conversations.

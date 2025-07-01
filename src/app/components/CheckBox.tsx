@@ -14,7 +14,7 @@ export default function CheckBox({
     <div className="flex flex-row items-center gap-2">
       <div
         onClick={clickHandler}
-        className="w-5 h-5 bg-[#EEE] rounded-md border border-[#CCC] overflow-hidden"
+        className="w-5 h-5 bg-lines rounded-md border border-border overflow-hidden"
       >
         <AnimatePresence>
           {checked ? (

@@ -2,50 +2,91 @@
 
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-bg: #fafafa;
-  --color-darkblue: rgba(0, 2, 40, 1);
+  --color-darkblue: #000228;
   --color-blue: #1d3dc4;
-  --color-secondarytext: rgba(77, 77, 77, 1);
+  --color-secondarytext: #4d4d4d;
   --color-lines: #f4f4f4;
   --color-workbg: #fcfcfc;
   --color-border: #f1f1f1;
+  --color-disabled: #ddd;
+  --color-text: #000;
+  --gradient-grey: linear-gradient(180deg, #fff 0%, #b5d5f7 100%), #000;
+  --gradient-blue:
+    radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
+    linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+  --gradient-workitem: linear-gradient(
+    180deg,
+    rgba(252, 252, 252, 0) 0%,
+    rgba(244, 244, 244, 1) 45.67%
+  );
+  --color-mainbg: #fff;
+  --gradient-mainhover: radial-gradient(
+    #ff4f4f 0%,
+    #0000ff 23.08%,
+    #77cbff 40.38%,
+    #f6fbff 64.42%,
+    #ffffff 100%
+  );
+  --gradient-text: linear-gradient(90deg, #ffffff, #b5d5f7);
+  --gradient-input: linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+  --gradient-mainbuttonbg: linear-gradient(
+    180deg,
+    rgba(252, 252, 252, 0.85) 0%,
+    rgba(244, 244, 244, 0.85) 100%
+  );
+}
+
+@layer base {
+  [data-theme="dark"] {
+    --color-bg: #121212;
+    --color-darkblue: #ffffff;
+    --color-secondarytext: #9f9f9f;
+    --color-lines: #1f1f1f;
+    --color-workbg: #282828;
+    --color-text: #fff;
+    --color-mainbg: #3f3f3f;
+    --color-border: #282828;
+    --gradient-workitem: linear-gradient(
+      180deg,
+      rgba(252, 252, 252, 0) 0%,
+      rgb(63, 63, 63) 45.67%
+    );
+    --gradient-mainbuttonbg: linear-gradient(
+      180deg,
+      #2d2d2dd9 0%,
+      #202020d9 100%
+    );
+    --gradient-mainhover: radial-gradient(
+      #ff4f4f 0%,
+      #0000ff 23.08%,
+      #3f3f3f 64.42%,
+      #3f3f3f 100%
+    );
+    --gradient-contactbox: linear-gradient(
+      180deg,
+      #2d2d2df2 0%,
+      #202020f2 100%
+    );
+    --gradient-contactbox1: linear-gradient(
+      180deg,
+      #2d2d2df2 0%,
+      #262626f2 100%
+    );
+    --gradient-contactbox2: linear-gradient(
+      180deg,
+      #262626f2 0%,
+      #202020f2 100%
+    );
+  }
 }
 
 body {
   font-family: "Manroope", sans-serif;
 }
-
-.greygradientbg {
-  background: linear-gradient(180deg, #fff 0%, #b5d5f7 100%), #000;
-}
-
-.bluegradientbg {
-  background:
-    radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
-    linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
-}
-
-.worksbasebg {
-  background: linear-gradient(
-    180deg,
-    rgba(252, 252, 252, 0) 0%,
-    rgba(244, 244, 244, 1) 45.67%
-  );
-}
-
 .hoverBox {
-  position: relative;
-  background: rgba(255, 255, 255, 1);
-  padding: 6px;
-  font-size: 1.2rem;
-  border: none;
-  color: white;
-  cursor: pointer;
-  outline: none;
-  overflow: hidden;
-  width: 380px;
-  height: 420px;
+  @apply relative bg-mainbg p-1.5 text-[1.2rem] border-0 cursor-pointer outline-0 overflow-hidden w-96 h-[420px];
 }
 
 .hoverBox:before {
@@ -57,13 +98,7 @@ body {
   top: var(--y);
   width: 500px;
   height: 500px;
-  background: radial-gradient(
-    #ff4f4f 0%,
-    #0000ff 23.08%,
-    #77cbff 40.38%,
-    #f6fbff 64.42%,
-    #ffffff 100%
-  );
+  background: var(--gradient-mainhover);
   transform: translate(-50%, -50%);
   transition: opacity 0.2s ease;
   opacity: var(--opac);
@@ -90,27 +125,25 @@ body {
 
 .gradienttext {
   @apply font-medium;
-  background: linear-gradient(90deg, #ffffff, #b5d5f7);
+  background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .inputbox {
   @apply py-3 px-4 rounded-xl placeholder:text-secondarytext outline-0 w-full resize-none;
-  border: 0.5px solid #f1f1f1;
+  border: 0.5px solid var(--color-border);
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1) inset;
-  background: linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
+  background: var(--color-mainbg);
 }
 
 .sendbutton {
   @apply w-full flex flex-row justify-center items-center gap-2 rounded-xl py-3 px-4 text-white cursor-pointer disabled:cursor-not-allowed transition-all;
-  background:
-    radial-gradient(100% 100% at 50% 100%, #000e8a 0%, #2a8dff 100%),
-    linear-gradient(180deg, #fff 0%, #fdfdfd 100%);
-  border: 0.5px solid #f1f1f1;
+  background: var(--gradient-blue);
+  border: 0.5px solid var(--color-border);
 }
 
 .disabledbutton {
-  background: #ddd;
-  color: black;
+  background: var(--color-lines);
+  color: var(--color-text);
 }

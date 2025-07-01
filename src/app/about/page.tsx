@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
-    <div className="relative">
+    <div className="relative text-text">
       <motion.div
         className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end"
         initial={{ opacity: 0 }}
