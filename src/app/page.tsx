@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen">
-      <div className="flex flex-col justify-evenly min-h-screen items-center w-full py-8 max-xl:gap-8">
+      <div className="flex flex-col justify-evenly min-h-screen items-center w-full py-8 gap-8">
         <motion.div
           className="flex flex-col gap-8 items-center"
           initial={{ opacity: 0 }}
