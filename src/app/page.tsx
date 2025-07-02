@@ -27,7 +27,10 @@ export default function Home() {
     window.scrollTo({ top: 0 });
     setBeingRedirected(to);
     animation();
-    setTimeout(() => router.replace(to), 800);
+    setTimeout(
+      () => router.replace(to),
+      beingRedirected === "works" ? 800 : 900
+    );
   }
   return (
     <div
