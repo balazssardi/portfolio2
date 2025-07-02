@@ -4,12 +4,12 @@ import Logo from "./components/Logo";
 import MainText from "./components/MainText";
 import { motion, useAnimate } from "motion/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
   const [scope, animate] = useAnimate();
-  const [beingRedirected, setBeingRedirected] = useState<string | null>(null);
+  const [beingRedirected, setBeingRedirected] = useState<string>("");
   async function animation() {
     await animate(
       scope.current,
@@ -23,11 +23,14 @@ export default function Home() {
     }
     await animate(scope.current, { height: "192px" }, { duration: 0.1 });
   }
+  useEffect(() => {
+    const timeout = setTimeout(() => router.replace(beingRedirected), 900);
+    return () => clearTimeout(timeout);
+  }, [beingRedirected, router]);
   function handleRedirect(to: string) {
     window.scrollTo({ top: 0 });
     setBeingRedirected(to);
     animation();
-    setTimeout(() => router.replace(to), 900);
   }
   return (
     <div
