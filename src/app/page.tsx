@@ -13,9 +13,9 @@ export default function Home() {
   async function animation() {
     await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
     if (beingRedirected === "works") {
-      await animate(scope.current, { top: "0" }, { duration: 0.5, delay: 1 });
-    } else {
       await animate(scope.current, { top: "0" }, { duration: 0.5, delay: 0.5 });
+    } else {
+      await animate(scope.current, { top: "0" }, { duration: 0.5 });
     }
     await animate(scope.current, { height: "192px" }, { duration: 0.1 });
   }
@@ -23,11 +23,11 @@ export default function Home() {
     window.scrollTo({ top: 0 });
     setBeingRedirected(to);
     animation();
-    setTimeout(() => router.replace(to), to === "works" ? 2000 : 1500);
+    setTimeout(() => router.replace(to), to === "works" ? 1000 : 800);
   }
   return (
     <div
-      className={`relative w-full min-h-screen ${beingRedirected && "h-screen"}`}
+      className={`relative w-full min-h-screen ${beingRedirected && "max-h-screen"}`}
     >
       <div
         className={`flex flex-col justify-evenly min-h-screen items-center w-full py-8 gap-8 transition-all ${
