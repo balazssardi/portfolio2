@@ -17,9 +17,9 @@ export default function Home() {
       { duration: 0.2, delay: 0.15 }
     );
     if (beingRedirected === "works") {
-      await animate(scope.current, { top: "0" }, { duration: 0.5, delay: 0.5 });
+      await animate(scope.current, { top: "0" }, { duration: 0.3, delay: 0.5 });
     } else {
-      await animate(scope.current, { top: "0" }, { duration: 0.5 });
+      await animate(scope.current, { top: "0" }, { duration: 0.3 });
     }
     await animate(scope.current, { height: "192px" }, { duration: 0.1 });
   }
