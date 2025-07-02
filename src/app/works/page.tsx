@@ -9,13 +9,7 @@ import { motion } from "motion/react";
 export default function Works() {
   return (
     <div className="relative">
-      <motion.div
-        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <div className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end">
         <Image
           alt="Works icon"
           src={worksicon}
@@ -23,7 +17,7 @@ export default function Works() {
           height={720}
           className="rotate-180"
         />
-      </motion.div>
+      </div>
       <div className="w-full min-h-screen relative pb-24">
         <motion.div
           className="flex flex-row items-center justify-evenly p-8 max-lg:flex-col gap-8 z-10"

@@ -10,15 +10,9 @@ import ContactSocials from "../components/ContactSocials";
 export default function Contact() {
   return (
     <div className="relative">
-      <motion.div
-        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <div className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end">
         <Image alt="Contact icon" src={contacticon} width={720} height={720} />
-      </motion.div>
+      </div>
       <div className="w-full min-h-screen relative pb-24">
         <div className="absolute h-full w-full grid grid-cols-5 max-xl:grid-cols-3 -z-10 bg-bg">
           <div className="border-l border-lines h-full"></div>

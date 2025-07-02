@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { libre } from "../fonts";
 import { motion } from "motion/react";
 
@@ -10,18 +9,17 @@ export default function MainButton({
   title,
   desc,
   image,
-  to,
   index,
+  handleRedirect,
 }: {
   title: string;
   desc: string;
   image: string;
-  to: string;
   index: number;
+  handleRedirect: () => void;
 }) {
   const [style, setStyle] = useState({});
   const delay = index / 5;
-  const router = useRouter();
   const div = useRef<HTMLDivElement>(null);
   function mouseMoveHandler(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const rect = div.current?.getBoundingClientRect();
@@ -30,13 +28,14 @@ export default function MainButton({
     const y = e.clientY - rect!.top;
     setStyle({ "--x": `${x}px`, "--y": `${y}px` });
   }
+
   return (
     <motion.div
-      className="hoverBox flex rounded-3xl drop-shadow-lg"
+      className={`hoverBox flex rounded-3xl drop-shadow-lg`}
       style={style}
       onMouseMove={mouseMoveHandler}
       ref={div}
-      onClick={() => router.push(to)}
+      onClick={handleRedirect}
       initial={{ transform: "translateY(40px)", opacity: 0 }}
       whileInView={{ transform: "none", opacity: 1 }}
       viewport={{ once: true }}
