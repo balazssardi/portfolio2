@@ -37,7 +37,7 @@ export default function MainButton({
       ref={div}
       onClick={handleRedirect}
       initial={{ transform: "translateY(40px)", opacity: 0 }}
-      whileInView={{ transform: "none", opacity: 1 }}
+      animate={{ transform: "none", opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: delay, duration: 0.2 }}
     >
