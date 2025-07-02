@@ -11,7 +11,11 @@ export default function Home() {
   const [scope, animate] = useAnimate();
   const [beingRedirected, setBeingRedirected] = useState<string | null>(null);
   async function animation() {
-    await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
+    await animate(
+      scope.current,
+      { opacity: 1 },
+      { duration: 0.2, delay: 0.15 }
+    );
     if (beingRedirected === "works") {
       await animate(scope.current, { top: "0" }, { duration: 0.5, delay: 0.5 });
     } else {
@@ -23,7 +27,7 @@ export default function Home() {
     window.scrollTo({ top: 0 });
     setBeingRedirected(to);
     animation();
-    setTimeout(() => router.replace(to), to === "works" ? 1000 : 800);
+    setTimeout(() => router.replace(to), 800);
   }
   return (
     <div
