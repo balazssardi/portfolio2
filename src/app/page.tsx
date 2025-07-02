@@ -69,7 +69,7 @@ export default function Home() {
         </div>
       </div>
       <motion.div
-        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 flex items-end -z-10"
+        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-1/2 flex items-end -z-10"
         ref={scope}
         transition={{ duration: 10 }}
         initial={{ opacity: 0, height: "max-content", top: "50%", rotate: 0 }}
