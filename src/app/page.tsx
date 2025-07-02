@@ -17,7 +17,7 @@ export default function Home() {
     } else {
       await animate(scope.current, { top: "0" }, { duration: 0.5, delay: 0.5 });
     }
-    await animate(scope.current, { height: "96px" }, { duration: 0.1 });
+    await animate(scope.current, { height: "192px" }, { duration: 0.1 });
   }
   function handleRedirect(to: string) {
     window.scrollTo({ top: 0 });
