@@ -11,7 +11,11 @@ export default function SocialButton({
   icon: string;
 }) {
   return (
-    <Link href={link} className="sendbutton !justify-start">
+    <Link
+      href={link}
+      className="sendbutton !justify-start"
+      style={{ background: `var(--gradient-${type})` }}
+    >
       <Icon icon={icon} width={18} height={18} />
       <p className="capitalize">{type}</p>
     </Link>

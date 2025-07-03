@@ -115,7 +115,7 @@ export default function ContactForm() {
               key={"success"}
             />
           )}
-          <p className="text-white">
+          <p className={disabled || status !== "" ? "text-text" : "text-white"}>
             {status === ""
               ? "Send Mail"
               : status === "loading"
