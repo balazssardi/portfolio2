@@ -31,7 +31,13 @@ export default function About() {
     >
       <div className="h-screen snap-start">
         <div className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 h-24 overflow-hidden flex items-end">
-          <Image alt="About icon" src={abouticon} width={720} height={720} />
+          <Image
+            alt="About icon"
+            src={abouticon}
+            width={720}
+            height={720}
+            priority
+          />
         </div>
         <div className="w-full h-full relative max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center">
           <motion.div

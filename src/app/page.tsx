@@ -33,7 +33,7 @@ export default function Home() {
     if (!beingRedirected) return;
     const timeout = setTimeout(
       () => router.replace(beingRedirected),
-      beingRedirected === "works" ? 900 : 1200
+      beingRedirected === "works" ? 1200 : 900
     );
     return () => clearTimeout(timeout);
   }, [beingRedirected, router]);

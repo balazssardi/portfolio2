@@ -16,6 +16,7 @@ export default function Works() {
           width={720}
           height={720}
           className="rotate-180"
+          priority
         />
       </div>
       <div className="w-full min-h-screen relative pb-24">
