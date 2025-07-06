@@ -6,6 +6,10 @@ import { motion, useAnimate } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import about from "../../public/about.svg";
+import works from "../../public/works.svg";
+import contact from "../../public/contact.svg";
+
 export default function Home() {
   const router = useRouter();
   const [scope, animate] = useAnimate();
@@ -80,17 +84,24 @@ export default function Home() {
         ref={scope}
         initial={{ opacity: 0, height: "max-content", top: "50%", rotate: 0 }}
       >
-        {beingRedirected && (
+        {beingRedirected === "about" ? (
+          <motion.img alt={"About icon"} src={about} width={720} height={720} />
+        ) : beingRedirected === "contact" ? (
           <motion.img
-            alt={`${beingRedirected} icon`}
-            src={`/${beingRedirected}.svg`}
+            alt={"Contact icon"}
+            src={contact}
             width={720}
             height={720}
-            initial={beingRedirected === "works" && { rotate: 1 }}
-            whileInView={beingRedirected === "works" ? { rotate: 180 } : ""}
-            transition={
-              beingRedirected === "works" ? { delay: 0.3, duration: 0.5 } : {}
-            }
+          />
+        ) : (
+          <motion.img
+            alt={"Works icon"}
+            src={works}
+            width={720}
+            height={720}
+            initial={{ rotate: 1 }}
+            whileInView={{ rotate: 180 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
           />
         )}
       </motion.div>
