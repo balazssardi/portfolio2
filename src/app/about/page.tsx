@@ -144,9 +144,10 @@ export default function About() {
                 the challenge.
               </p>
               <p className="text-left text-sm">
-                Outside of coding, I enjoy photography, playing my guitar, I
-                also love coffee. Always learning something new — currently
-                diving into TypeScript and animations.
+                Outside of coding, I enjoy hiking and learning about psychology.
+                Of course, I also love coffee. I&apos;m always learning
+                something new — currently I&apos;m diving into Redux and Next.JS
+                APIs.
               </p>
             </div>
           </div>
