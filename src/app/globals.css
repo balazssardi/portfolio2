@@ -161,6 +161,7 @@ button {
 .gradienttext {
   @apply font-medium;
   background: var(--gradient-text);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
