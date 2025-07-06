@@ -31,7 +31,10 @@ export default function Home() {
   }, [beingRedirected]);
   useEffect(() => {
     if (!beingRedirected) return;
-    const timeout = setTimeout(() => router.replace(beingRedirected), 900);
+    const timeout = setTimeout(
+      () => router.replace(beingRedirected),
+      beingRedirected === "works" ? 900 : 1200
+    );
     return () => clearTimeout(timeout);
   }, [beingRedirected, router]);
   function handleRedirect(to: string) {
@@ -82,7 +85,7 @@ export default function Home() {
         </div>
       </div>
       <motion.div
-        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-x-1/2 flex items-end z-10"
+        className="absolute xl:w-[calc(20%-12px)] left-1/2 -translate-1/2 flex items-end z-10"
         ref={scope}
         initial={{ opacity: 0, height: "max-content", top: "50%", rotate: 0 }}
       >
