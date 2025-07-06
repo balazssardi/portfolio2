@@ -9,7 +9,7 @@ export default function ThemeSelector({
 }) {
   return (
     <button
-      className="fixed top-2 right-2 z-50 p-2 bg-mainbg border-border border rounded-xl"
+      className="fixed top-2 right-2 z-50 p-2 bg-mainbg border-border border rounded-xl w-14 h-14"
       onClick={handleSetTheme}
     >
       {theme === "dark" ? (
