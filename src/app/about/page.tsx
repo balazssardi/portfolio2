@@ -64,7 +64,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg xl:self-end aspect-[181/236] max-xl:w-full">
-              <div className="w-full h-full rounded-[20px] flex justify-between items-center flex-col text-center text-white border border-border backdrop-blur-2xl bg-[url('/me.png')] bg-cover bg-center overflow-hidden">
+              <div className="w-full h-full rounded-[20px] flex justify-between items-center flex-col text-center text-white border border-border backdrop-blur-2xl bg-[url('/me.jpg')] bg-cover bg-center overflow-hidden">
                 <div
                   className="aboutme-top h-1/3 flex flex-col justify-evenly items-center w-full
                 "
