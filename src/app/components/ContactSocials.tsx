@@ -32,7 +32,7 @@ export default function ContactSocials() {
         <SocialButton
           icon="fa6-brands:instagram"
           type="instagram"
-          link="https://facebook.com"
+          link="https://www.instagram.com/balazs_sardi"
         />
       </div>
     </motion.div>
