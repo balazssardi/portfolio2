@@ -17,17 +17,17 @@ export default function ContactSocials() {
         <SocialButton
           icon="fa6-brands:facebook-f"
           type="facebook"
-          link="https://facebook.com"
+          link="https://www.facebook.com/balazs.sardi.376/"
         />
         <SocialButton
           icon="fa6-brands:linkedin-in"
           type="linkedIn"
-          link="https://facebook.com"
+          link="https://www.linkedin.com/in/bal%C3%A1zs-s%C3%A1rdi-728655339/"
         />
         <SocialButton
           icon="fa6-brands:x-twitter"
           type="x"
-          link="https://facebook.com"
+          link="https://x.com/balazssardi1"
         />
         <SocialButton
           icon="fa6-brands:instagram"

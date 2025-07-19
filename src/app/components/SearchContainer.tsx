@@ -53,32 +53,13 @@ const items: {
     state: "visit",
   },
   {
-    id: 2,
-    name: "DiscordServers",
-    image: "/works/discordservers.png",
-    link: "/",
-    shortDesc: "Discord server advertisement platform",
-    longDesc:
-      " The discordservers.hu is a discord server advertising site, with its own authentication system, ratings, comments, discord bot and bumping. A REST API written in Python using Flask framework served the site and its related services.",
-    year: "2023",
-    technologies: [
-      "VueJS",
-      "TailwindCSS",
-      "NuxtJS",
-      "Python",
-      "Flask",
-      "VScode",
-    ],
-    state: "discontinued",
-  },
-  {
     id: 3,
     name: "Toll",
     image: "/works/toll.png",
     link: "https://tolledu.hu",
-    shortDesc: "A blog for students",
+    shortDesc: "A platform for students",
     longDesc:
-      "It's the portfolio of a friend of mine who is a graphic designer and also designed this site. A responsive portfolio, full of unique animations and transitions. It was developed using the motion library.",
+      "A platform where students can ask their questions and get answers from experts and other students, making learning faster and more efficient.",
     year: "2025",
     technologies: [
       "React",

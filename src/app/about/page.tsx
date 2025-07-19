@@ -95,7 +95,7 @@ export default function About() {
                 Hello, I’m Balázs!
               </h1>
               <p>
-                I’m a 19 years old Front-End Developer from Budapest. I’m
+                I’m a 20 years old Front-End Developer from Gödöllő. I’m
                 passionate about creating intuitive and visually appealing web
                 interfaces.
               </p>
