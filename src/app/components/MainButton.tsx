@@ -41,16 +41,20 @@ export default function MainButton({
       viewport={{ once: true }}
       transition={{ delay: delay, duration: 0.2 }}
     >
-      <div className="w-full h-full rounded-[20px] flex justify-evenly items-center flex-col text-center text-text p-4 border border-border backdrop-blur-2xl bg-(image:--gradient-mainbuttonbg)">
-        <h1 className={`leading-none text-[30px] ${libre.className}`}>
-          {title}
-        </h1>
-        <p className="leading-tight">{desc}</p>
+      <div className="w-full h-full rounded-[20px] flex justify-evenly items-center flex-col text-center text-text px-4 py-8 gap-4 border border-border backdrop-blur-2xl bg-(image:--gradient-mainbuttonbg)">
+        <div className="flex flex-col gap-2">
+          <h1 className={`leading-none text-[30px] ${libre.className}`}>
+            {title}
+          </h1>
+          <p className="leading-tight">{desc}</p>
+        </div>
+
         <Image
           src={`/${image}`}
           alt={`${title} photo`}
           width={235}
           height={235}
+          className="max-w-[235px] max-h-[235px] w-auto h-auto"
         />
       </div>
     </motion.div>

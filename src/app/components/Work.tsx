@@ -51,7 +51,7 @@ export default function Work({
       viewport={{ once: true }}
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
-      onTap={tapHandler}
+      onClick={tapHandler}
       style={{ touchAction: "pan-y" }}
     >
       {work.id === 0 ? (

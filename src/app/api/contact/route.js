@@ -15,10 +15,10 @@ export async function POST(request) {
       );
     }
     const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <portfolio@sardi-balazs.hu>", // Ezt cseréld le a saját verifikált domainedre
-      to: ["balazs.sardi@gmail.com"], // Ide jön a te saját email címed
+      from: "Portfolio Contact <portfolio@sardi-balazs.hu>",
+      to: ["balazs.sardi@gmail.com"],
       subject: `Új üzenet a portfóliódból - Feladó: ${name}`,
-      reply_to: email, // Így közvetlenül a felhasználónak tudsz válaszolni
+      reply_to: email,
       html: `
             <h1>Új üzenet érkezett a portfólión keresztül!</h1>
             <h1>${subject}</h1>

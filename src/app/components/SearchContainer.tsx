@@ -53,7 +53,7 @@ const items: {
     state: "visit",
   },
   {
-    id: 3,
+    id: 2,
     name: "Toll",
     image: "/works/toll.png",
     link: "https://tolledu.hu",
@@ -98,9 +98,7 @@ export default function SearchContainer() {
   };
 
   const handleTap = (index: number) => {
-    setActiveTap((prev) => {
-      return prev === index ? null : index;
-    });
+    setActiveTap((prev) => (prev === index ? null : index));
     setActiveMouse((prev) => (prev === index ? null : index));
   };
 
@@ -119,7 +117,7 @@ export default function SearchContainer() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Type here to search..."
-          className="w-96 border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text"
+          className="max-w-96 border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -128,7 +126,7 @@ export default function SearchContainer() {
         <div
           className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 text-text ${
             isFilterOpen
-              ? "w-full h-62 bg-mainbg border border-border"
+              ? "w-full h-44 bg-mainbg border border-border"
               : "w-[50px] h-[50px] border-transparent bg-transparent"
           }`}
         >

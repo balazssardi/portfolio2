@@ -46,7 +46,7 @@ export default function Home() {
       className={`relative w-full min-h-screen ${beingRedirected && "max-h-screen"}`}
     >
       <div
-        className={`flex flex-col justify-evenly min-h-screen items-center w-full py-8 gap-8 transition-all ${
+        className={`flex flex-col justify-evenly min-h-screen items-center w-full py-8 px-4 gap-8 transition-all ${
           beingRedirected && "opacity-0"
         }`}
       >
