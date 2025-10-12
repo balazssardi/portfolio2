@@ -99,14 +99,16 @@ export default function SearchContainer() {
 
   const handleTap = (index: number) => {
     setActiveTap((prev) => (prev === index ? null : index));
-    setActiveMouse((prev) => (prev === index ? null : index));
+    setActiveMouse(null);
   };
 
   const handleMouseEnter = (index: number) => {
+    setActiveTap(null);
     setActiveMouse(index);
   };
 
   const handleMouseLeave = () => {
+    setActiveTap(null);
     setActiveMouse(null);
   };
   return (

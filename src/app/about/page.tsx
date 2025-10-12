@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import { libre } from "../fonts";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import about2 from "../../../public/about2.svg";
 
 export default function About() {
   const [section, setSection] = useState(0);
@@ -26,7 +27,7 @@ export default function About() {
   }, []);
   return (
     <div
-      className="relative text-text w-full xl:snap-y xl:snap-mandatory scroll-smooth overflow-y-auto h-screen max-xl:flex max-xl:flex-col max-xl:gap-16"
+      className="relative text-text w-full xl:snap-y xl:snap-mandatory scroll-smooth overflow-y-auto h-screen max-xl:flex max-xl:flex-col max-xl:gap-16 will-change-auto"
       ref={scrollRef}
     >
       <div className="h-screen snap-start">
@@ -39,7 +40,7 @@ export default function About() {
             priority
           />
         </div>
-        <div className="w-full h-full relative max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center">
+        <div className="w-full h-full relative">
           <motion.div
             className="flex flex-row items-center justify-evenly p-8 max-lg:flex-col gap-8 z-10"
             initial={{ opacity: 0 }}
@@ -63,8 +64,8 @@ export default function About() {
             transition={{ duration: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg xl:self-end aspect-[181/236] max-xl:w-full">
-              <div className="w-full h-full rounded-[20px] flex justify-between items-center flex-col text-center text-white border border-border backdrop-blur-2xl bg-[url('/me.jpg')] bg-cover bg-center overflow-hidden">
+            <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg xl:self-end aspect-[181/236] max-xl:w-1/2 max-sm:w-full">
+              <div className="w-full h-full rounded-[20px] flex justify-between items-center flex-col text-center text-white border border-border backdrop-blur-2xl bg-[url('/me.jpg')] bg-cover bg-center overflow-hidden ">
                 <div
                   className="aboutme-top h-1/3 flex flex-col justify-evenly items-center w-full
                 "
@@ -114,7 +115,7 @@ export default function About() {
         transition={{ duration: 0.2 }}
       >
         <div
-          className={`xl:w-[calc(20vw-32px)] xl:ml-[20vw] flex flex-col gap-4 max-xl:text-center max-xl:px-4 transition-all xl:h-2/3 relative justify-center ${section !== 1 ? "xl:-top-3/5" : "xl:top-0"}`}
+          className={`xl:w-[calc(20vw-32px)] xl:ml-[20vw] flex flex-col gap-4 max-xl:text-center max-xl:px-4 transition-all xl:h-2/3 relative justify-center will-change-auto ${section !== 1 ? "xl:-top-3/5" : "xl:top-0"}`}
         >
           <h1 className={`${libre.className} text-4xl`}>
             Technologies I <br />
@@ -122,8 +123,8 @@ export default function About() {
           </h1>
           <p>A quick list of the tools and technologies I use regularly.</p>
         </div>
-        <div className="xl:w-1/5 relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden max-xl:h-1/2 rounded-3xl drop-shadow-lg aspect-[181/236] max-xl:w-full max-xl:flex-1">
-          <div className="w-full h-full rounded-[20px] flex justify-evenly items-center flex-col text-center text-text p-4 border border-border backdrop-blur-2xl bg-[url('/about2.svg')] bg-cover bg-center"></div>
+        <div className="xl:w-1/5 relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden max-xl:h-auto rounded-3xl drop-shadow-lg aspect-[181/236] max-sm:w-full max-xl:w-1/2 max-xl:flex-1 will-change-auto">
+          <Image src={about2} alt="technologies image" className="w-full rounded-[18px]" />
         </div>
       </motion.div>
       <motion.div
@@ -136,7 +137,7 @@ export default function About() {
         }}
         transition={{ duration: 0.2 }}
       >
-        <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg aspect-[181/236]  max-xl:w-full">
+        <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg aspect-[181/236] max-xl:w-1/2 max-sm:w-full will-change-auto">
           <div className="w-full h-full flex rounded-[20px] items-center justify-end flex-col text-center text-text p-2 border border-border backdrop-blur-2xl bg-(image:--gradient-mainbuttonbg)">
             <div className="flex flex-col gap-2 bg-lines w-full rounded-xl p-2">
               <p className="text-left text-sm">
@@ -159,7 +160,7 @@ export default function About() {
           </div>
         </div>
         <div
-          className={`xl:w-[calc(20vw-32px)] flex flex-col gap-4 max-xl:text-center max-xl:px-4 transition-all xl:h-2/3 relative justify-center ${section !== 2 ? "xl:-top-3/5" : "xl:top-0"}`}
+          className={`xl:w-[calc(20vw-32px)] flex flex-col gap-4 max-xl:text-center max-xl:px-4 transition-all xl:h-2/3 relative justify-center will-change-auto ${section !== 2 ? "xl:-top-3/5" : "xl:top-0"}`}
         >
           <h1 className={`${libre.className} text-4xl`}>
             A bit more <br /> about me
