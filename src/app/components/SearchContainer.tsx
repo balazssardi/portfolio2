@@ -112,75 +112,76 @@ export default function SearchContainer() {
     setActiveMouse(null);
   };
   return (
-    <div className="flex flex-col items-center gap-12">
-      <div className="flex flex-row gap-4 relative">
+    <div className="flex flex-col items-center gap-12 max-md:px-4">
+      <div className="flex flex-row gap-4 relative xl:w-1/5 max-xl:w-1/3 max-md:w-2/3 max-sm:w-full">
         <motion.input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Type here to search..."
-          className="max-w-96 border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text"
+          className={"border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text w-full z-10 "}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.2, delay: 0.2 }}
+          transition={{ duration: 0.2 }}
         />
-        <div
-          className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 z-50 text-text ${
-            isFilterOpen
-              ? "w-full h-44 bg-mainbg border border-border"
-              : "w-[50px] h-[50px] border-transparent bg-transparent"
-          }`}
+        <button
+          className="w-[50px] h-[50px] absolute top-0 right-0 flex items-center justify-center z-50"
+          onClick={() => setIsFilterOpen((prev) => !prev)}
         >
-          <button
-            className="w-[50px] h-[50px] absolute top-0 right-0 flex items-center justify-center"
-            onClick={() => setIsFilterOpen((prev) => !prev)}
+          {isFilterOpen ? (
+            <Icon
+              icon="line-md:close"
+              width="32"
+              height="32"
+              className="text-secondarytext"
+              key={"close"}
+            />
+          ) : (
+            <Icon
+              icon="line-md:filter-twotone"
+              width="32"
+              height="32"
+              className="text-secondarytext"
+              key={"open"}
+            />
+          )}
+        </button>
+        <AnimatePresence>
+        {isFilterOpen && (
+          <motion.div
+            className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 text-text will-change-contents w-full z-10 ${
+              isFilterOpen
+                ? "h-auto bg-mainbg border border-border"
+                : "h-[50px] border-transparent bg-transparent"
+            }`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            {isFilterOpen ? (
-              <Icon
-                icon="line-md:close"
-                width="32"
-                height="32"
-                className="text-secondarytext"
-                key={"close"}
-              />
-            ) : (
-              <Icon
-                icon="line-md:filter-twotone"
-                width="32"
-                height="32"
-                className="text-secondarytext"
-                key={"open"}
-              />
-            )}
-          </button>
-          <AnimatePresence>
-            {isFilterOpen && (
-              <motion.div
-                key="filtermenu"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className={` flex flex-row gap-4 flex-wrap w-[calc(100%-50px)]`}
-              >
-                <p
-                  className="w-full font-medium text-lg leading-none
-              "
+                <div    
+                  className={` flex flex-row gap-4 flex-wrap`}
                 >
-                  Filters
-                </p>
-                {usedTechnologies.map((technology) => (
-                  <CheckBox
-                    label={technology}
-                    clickHandler={() => toggleTechnology(technology)}
-                    checked={filter.includes(technology)}
-                    key={technology}
-                  />
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                  <p
+                    className="w-full font-medium text-lg leading-none
+                "
+                  >
+                    Filters
+                  </p>
+                  {usedTechnologies.map((technology) => (
+                    <CheckBox
+                      label={technology}
+                      clickHandler={() => toggleTechnology(technology)}
+                      checked={filter.includes(technology)}
+                      key={technology}
+                    />
+                  ))}
+                </div>    
+                
+          </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 items-center justify-center">
