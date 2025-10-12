@@ -150,7 +150,7 @@ export default function SearchContainer() {
         <AnimatePresence>
         {isFilterOpen && (
           <motion.div
-            className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 text-text will-change-contents w-full z-10 ${
+            className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 text-text will-change-contents w-full z-40 ${
               isFilterOpen
                 ? "h-auto bg-mainbg border border-border"
                 : "h-[50px] border-transparent bg-transparent"
