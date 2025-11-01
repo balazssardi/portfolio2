@@ -154,7 +154,7 @@ export default function About() {
       >
         <div className="xl:w-1/5 xl:ml-[40vw] relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden rounded-3xl drop-shadow-lg aspect-[181/236] max-xl:w-1/2 max-sm:w-full will-change-auto">
           <div className="w-full h-full flex rounded-[20px] items-center justify-end flex-col text-center text-text p-2 border border-border backdrop-blur-2xl bg-(image:--gradient-mainbuttonbg)">
-            <div className="flex flex-col gap-2 bg-lines w-full rounded-xl p-2">
+            <div className="flex flex-col gap-2 bg-lines w-full rounded-xl p-2 max-h-full overflow-y-auto">
               <p className="text-left text-sm">
                 I&apos;m a frontend developer with a passion for clean code,
                 smooth animations, and building web experiences that actually
