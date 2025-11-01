@@ -54,7 +54,7 @@ export default function MainButton({
           alt={`${title} photo`}
           width={235}
           height={235}
-          className="max-w-[235px] max-h-[235px]"
+          className="h-[10em] w-[10em]"
         />
       </div>
     </motion.div>

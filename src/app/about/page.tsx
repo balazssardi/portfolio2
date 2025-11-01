@@ -138,7 +138,7 @@ export default function About() {
           <Image
             src={about2}
             alt="technologies image"
-            className="w-full rounded-[18px]"
+            className="w-full h-full rounded-[18px]"
           />
         </div>
       </motion.div>

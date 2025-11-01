@@ -119,7 +119,9 @@ export default function SearchContainer() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Type here to search..."
-          className={"border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text w-full z-10 "}
+          className={
+            "border border-border px-4 py-3 rounded-full bg-mainbg focus:outline-0 placeholder:text-secondarytext text-text w-full z-10 "
+          }
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -148,38 +150,35 @@ export default function SearchContainer() {
           )}
         </button>
         <AnimatePresence>
-        {isFilterOpen && (
-          <motion.div
-            className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 text-text will-change-contents w-full z-40 ${
-              isFilterOpen
-                ? "h-auto bg-mainbg border border-border"
-                : "h-[50px] border-transparent bg-transparent"
-            }`}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-                <div    
-                  className={` flex flex-row gap-4 flex-wrap`}
-                >
-                  <p
-                    className="w-full font-medium text-lg leading-none
+          {isFilterOpen && (
+            <motion.div
+              className={`absolute right-0 top-0 transition-all rounded-3xl flex items-center pl-4 py-4 text-text will-change-contents w-full z-40 ${
+                isFilterOpen
+                  ? "h-auto bg-mainbg border border-border"
+                  : "h-[50px] border-transparent bg-transparent"
+              }`}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className={` flex flex-row gap-4 flex-wrap`}>
+                <p
+                  className="w-full font-medium text-lg leading-none
                 "
-                  >
-                    Filters
-                  </p>
-                  {usedTechnologies.map((technology) => (
-                    <CheckBox
-                      label={technology}
-                      clickHandler={() => toggleTechnology(technology)}
-                      checked={filter.includes(technology)}
-                      key={technology}
-                    />
-                  ))}
-                </div>    
-                
-          </motion.div>
+                >
+                  Filters
+                </p>
+                {usedTechnologies.map((technology) => (
+                  <CheckBox
+                    label={technology}
+                    clickHandler={() => toggleTechnology(technology)}
+                    checked={filter.includes(technology)}
+                    key={technology}
+                  />
+                ))}
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
