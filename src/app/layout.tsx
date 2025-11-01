@@ -1,6 +1,7 @@
 import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Sárdi Balázs - Frontend Developer",
@@ -32,6 +33,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-VR876H5EV6" />
     </html>
   );
 }
