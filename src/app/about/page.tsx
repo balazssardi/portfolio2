@@ -12,18 +12,29 @@ import about2 from "../../../public/about2.svg";
 export default function About() {
   const [section, setSection] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const tickingRef = useRef(false);
   useEffect(() => {
-    const ref = scrollRef.current!;
-    function callback() {
-      const scroll = ref.scrollTop;
-      const windowheight = window.screen.height / 2;
-      console.log(scroll, windowheight);
-      if (scroll < windowheight / 2) setSection(0);
-      if (scroll > 0 && windowheight < scroll) setSection(1);
-      if (scroll > windowheight && windowheight * 2 < scroll) setSection(2);
+    const ref = scrollRef.current;
+    if (!ref) return;
+    function onScroll() {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+      const el = ref!;
+      requestAnimationFrame(() => {
+        const scroll = el.scrollTop;
+        const height = el.clientHeight || window.innerHeight;
+        const newSection = Math.max(
+          0,
+          Math.min(2, Math.round(scroll / height))
+        );
+        setSection(newSection);
+        tickingRef.current = false;
+      });
     }
-    ref.addEventListener("scroll", callback);
-    return () => ref.removeEventListener("scroll", callback);
+    ref.addEventListener("scroll", onScroll, {
+      passive: true,
+    } as AddEventListenerOptions);
+    return () => ref.removeEventListener("scroll", onScroll);
   }, []);
   return (
     <div
@@ -124,7 +135,11 @@ export default function About() {
           <p>A quick list of the tools and technologies I use regularly.</p>
         </div>
         <div className="xl:w-1/5 relative bg-mainbg p-1.5 text-[1.2rem] border-0 outline-0 overflow-hidden max-xl:h-auto rounded-3xl drop-shadow-lg aspect-[181/236] max-sm:w-full max-xl:w-1/2 max-xl:flex-1 will-change-auto">
-          <Image src={about2} alt="technologies image" className="w-full rounded-[18px]" />
+          <Image
+            src={about2}
+            alt="technologies image"
+            className="w-full rounded-[18px]"
+          />
         </div>
       </motion.div>
       <motion.div

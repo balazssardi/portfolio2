@@ -9,25 +9,24 @@ export default function ThemeProvider({
   children: React.ReactNode;
 }>) {
   const [theme, setTheme] = useState<string | null>(null);
-
   useEffect(() => {
     const currtheme = localStorage.getItem("theme");
-    if (currtheme !== "light" && currtheme !== "dark") {
+    if (currtheme === "dark" || currtheme === "light") {
+      setTheme(currtheme);
+    } else {
       const detected = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
       setTheme(detected);
       localStorage.setItem("theme", detected);
-    } else {
-      setTheme(currtheme);
     }
-  }, [theme]);
+  }, []);
 
   function handleSetTheme() {
     if (theme === "light") {
       setTheme("dark");
       localStorage.setItem("theme", "dark");
-    } else {
+    } else if (theme === "dark") {
       setTheme("light");
       localStorage.setItem("theme", "light");
     }

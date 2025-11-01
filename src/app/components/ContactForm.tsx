@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { libre } from "../fonts";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
@@ -9,7 +9,7 @@ export default function ContactForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<number | null>(null);
 
   const disabled =
     email === "" || name === "" || subject === "" || message === "";
@@ -34,18 +34,23 @@ export default function ContactForm() {
     } catch {
       setStatus("error");
     }
-    setInterval(() => setStatus(""), 5000);
-    if (intervalId) {
-      clearInterval(intervalId);
-      setIntervalId(null);
-      return;
+    // Clear any existing timeout and set a single timeout to clear status
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
     }
-
-    const newIntervalId = setInterval(() => {
+    timeoutRef.current = window.setTimeout(() => {
       setStatus("");
+      timeoutRef.current = null;
     }, 5000);
-    setIntervalId(newIntervalId);
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <motion.div

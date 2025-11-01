@@ -2,6 +2,7 @@ import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import {} from /* Suspense removed - use Next's built-in loading.tsx */ "react";
 
 export const metadata: Metadata = {
   title: "Sárdi Balázs - Frontend Developer",
@@ -19,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("Portfolio component rendered");
   return (
     <html lang="en">
       <body>

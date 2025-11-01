@@ -40,7 +40,7 @@ export default function Work({
   const [theme, setTheme] = useState<string | null>(null);
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
-  }, [theme]);
+  }, []);
   return (
     <motion.div
       className="h-72 p-2 bg-lines rounded-3xl cursor-pointer relative select-none
